@@ -5,3 +5,4 @@
 - Update 03: Commit log entry 03.
 - Update 04: Commit log entry 04.
 - Update 05: Commit log entry 05.
+- Update 06: Commit log entry 06.
