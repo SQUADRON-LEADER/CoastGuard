@@ -23,3 +23,4 @@
 - Update 21: Commit log entry 21.
 - Update 22: Commit log entry 22.
 - Update 23: Commit log entry 23.
+- Update 24: Commit log entry 24.
