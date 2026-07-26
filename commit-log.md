@@ -17,3 +17,4 @@
 - Update 15: Commit log entry 15.
 - Update 16: Commit log entry 16.
 - Update 17: Commit log entry 17.
+- Update 18: Commit log entry 18.
