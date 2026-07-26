@@ -1,4 +1,4 @@
-# CoastGuard 🌊
+# CoastGuard
 
 Community-powered disaster management platform for coastal India. Real-time hazard reporting, AI-powered alerts, and social media analytics.
 
