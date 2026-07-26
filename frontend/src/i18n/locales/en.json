@@ -1,0 +1,322 @@
+{
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "reports": "Reports", 
+    "verify": "Verification Center",
+    "analytics": "Analytics",
+    "validation": "Validation Center",
+    "community": "Community",
+    "leaderboard": "Leaderboard",
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "logout": "Sign Out",
+    "login": "Sign In",
+    "register": "Register",
+    "searchPlaceholder": "Search reports, users, locations..."
+  },
+  "auth": {
+    "loginTitle": "Sign In to CoastGuard",
+    "registerTitle": "Join CoastGuard",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "name": "Full Name",
+    "phone": "Phone Number",
+    "role": "Role",
+    "language": "Preferred Language",
+    "loginButton": "Sign In",
+    "registerButton": "Create Account",
+    "forgotPassword": "Forgot Password?",
+    "switchToRegister": "Don't have an account? Sign up",
+    "switchToLogin": "Already have an account? Sign in",
+    "roleUser": "General User",
+    "roleCommunity": "Community Member",
+    "roleProtector": "Coast Guard Officer"
+  },
+  "landing": {
+    "hero": {
+      "title": "CoastGuard",
+      "tagline": "Early Alerts from the People, for the People",
+      "subtitle": "Empowering coastal communities with real-time disaster reporting and collaborative safety intelligence",
+      "joinCommunity": "Join Our Community",
+      "signIn": "Sign In"
+    },
+    "problem": {
+      "title": "Protecting Our Coastal Communities Together",
+      "description": "India's vast coastline faces increasing threats from climate change and extreme weather. Traditional disaster response systems often miss critical early signals from communities on the ground. CoastGuard bridges this gap with community-powered reporting and intelligent analytics."
+    },
+    "stats": {
+      "earlyDetection": {
+        "title": "Early Detection",
+        "description": "Communities often spot hazards first. Our platform captures these vital early signals to enable faster response times and better preparedness."
+      },
+      "communityCare": {
+        "title": "Community Care", 
+        "description": "When neighbors look out for neighbors, everyone stays safer. Our platform strengthens community bonds through shared responsibility and collective action."
+      },
+      "smartAnalytics": {
+        "title": "Smart Analytics",
+        "description": "Transform scattered reports into actionable intelligence. Our AI-powered analytics help officials make informed decisions and allocate resources effectively."
+      }
+    },
+    "userTypes": {
+      "title": "Three Ways to Make a Difference",
+      "subtitle": "Whether you're a community member, official, or analyst, CoastGuard has tools designed for your unique role",
+      "community": {
+        "title": "Community Users",
+        "description": "Upload photos, documents, and reports. Vote on local issues and help verify community information.",
+        "features": {
+          "upload": "Upload reports with location",
+          "voting": "Community voting system", 
+          "insights": "Local insights & updates"
+        },
+        "cta": "Join as User"
+      },
+      "protectors": {
+        "title": "Protectors & Guides",
+        "description": "Verify community uploads, respond to high-priority issues, and guide community safety efforts.",
+        "features": {
+          "dashboard": "Verification dashboard",
+          "response": "Response actions",
+          "insights": "Community insights"
+        },
+        "cta": "Join as Protector"
+      },
+      "analysts": {
+        "title": "Insightful Guides",
+        "description": "Transform data into actionable insights with advanced analytics and predictive modeling.",
+        "features": {
+          "monitoring": "Social media monitoring",
+          "analytics": "Predictive analytics",
+          "trends": "Trend analysis"
+        },
+        "cta": "Join as Analyst"
+      }
+    },
+    "features": {
+      "title": "Powerful Features for Coastal Safety",
+      "realTime": {
+        "title": "Real-Time Reporting",
+        "description": "Instant hazard alerts from the community"
+      },
+      "maps": {
+        "title": "Interactive Maps",
+        "description": "Visual incident tracking and hotspot analysis"
+      },
+      "analytics": {
+        "title": "Smart Analytics", 
+        "description": "AI-powered insights and predictions"
+      },
+      "verification": {
+        "title": "Verified Alerts",
+        "description": "Community-verified and official validation"
+      }
+    },
+    "cta": {
+      "title": "Ready to Make a Difference?",
+      "subtitle": "Join thousands of coastal residents, officials, and analysts working together to keep our communities safe",
+      "button": "Get Started Today"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome back",
+    "subtitle": "Thank you for being a Community Helper and keeping our coasts safe",
+    "quickActions": "Quick Actions",
+    "recentReports": "Recent Reports",
+    "reportHazard": "Report Hazard",
+    "viewReports": "View Reports",
+    "analytics": "Analytics",
+    "notifications": "Notifications",
+    "noReports": "No reports found",
+    "loadingReports": "Loading reports...",
+    "stats": {
+      "myUploads": "My Uploads",
+      "localReports": "Local Reports",
+      "newUpdates": "New Updates",
+      "verifiedReports": "Verified Reports"
+    }
+  },
+  "verifier": {
+    "title": "Verifier Dashboard",
+    "subtitle": "Advanced verification management system",
+    "export": "Export",
+    "refresh": "Refresh",
+    "stats": {
+      "pendingReview": "Pending Review",
+      "verifiedToday": "Verified Today",
+      "highPriority": "High Priority",
+      "totalProcessed": "Total Processed"
+    }
+  },
+  "reports": {
+    "title": "Submit Report",
+    "reportType": "Report Type",
+    "hazardType": "Hazard Type",
+    "severity": "Severity Level",
+    "description": "Description",
+    "location": "Location",
+    "photos": "Photos",
+    "submit": "Submit Report",
+    "cancel": "Cancel",
+    "typePhoto": "Photo Report",
+    "typeVideo": "Video Report",
+    "typeAudio": "Audio Report",
+    "hazardTsunami": "Tsunami",
+    "hazardStorm": "Storm",
+    "hazardFlooding": "Flooding",
+    "hazardErosion": "Coastal Erosion",
+    "hazardPollution": "Water Pollution",
+    "hazardDebris": "Marine Debris",
+    "severityMild": "Mild",
+    "severityModerate": "Moderate",
+    "severitySerious": "Serious",
+    "severitySevere": "Severe",
+    "severityCritical": "Critical",
+    "uploadImages": "Upload Images",
+    "dragDrop": "Drag and drop images here, or click to select",
+    "maxFiles": "Maximum 5 files, 10MB each"
+  },
+  "verification": {
+    "title": "Verification Center",
+    "pendingReports": "Pending Reports",
+    "verifiedReports": "Verified Reports",
+    "flaggedReports": "Flagged Reports",
+    "approve": "Approve",
+    "reject": "Reject",
+    "flag": "Flag",
+    "noReports": "No reports to verify",
+    "reportDetails": "Report Details",
+    "submittedBy": "Submitted by",
+    "location": "Location",
+    "timeStamp": "Timestamp",
+    "verificationNotes": "Verification Notes"
+  },
+  "community": {
+    "title": "Community Feed",
+    "discussions": "Discussions",
+    "events": "Events",
+    "updates": "Updates",
+    "createPost": "Create Post",
+    "joinDiscussion": "Join Discussion",
+    "upcomingEvents": "Upcoming Events"
+  },
+  "analytics": {
+    "title": "Analytics Dashboard",
+    "subtitle": "Comprehensive platform insights and trends",
+    "overview": "Overview",
+    "trends": "Trends",
+    "hotspots": "Hotspots",
+    "timeRange": {
+      "24h": "Last 24 Hours",
+      "7d": "Last 7 Days", 
+      "30d": "Last 30 Days",
+      "90d": "Last 90 Days"
+    },
+    "metrics": {
+      "totalReports": "Total Reports",
+      "verifiedReports": "Verified Reports",
+      "activeUsers": "Active Users",
+      "avgResponseTime": "Avg Response Time"
+    },
+    "selectYear": "Select Year",
+    "selectedYear": "Selected Year",
+    "comparisonYear": "Comparison Year", 
+    "compareTo": "Compare to",
+    "selectComparisonYear": "Select Comparison Year",
+    "compareYears": "Compare Years",
+    "hideComparison": "Hide Comparison",
+    "clearComparison": "Clear Comparison",
+    "dataPeriod": "Data Period",
+    "multiYearAnalysis": "Multi-year analysis",
+    "fullYearData": "Full year data",
+    "analysisType": "Analysis Type",
+    "comparative": "Comparative",
+    "detailed": "Detailed",
+    "yearOverYear": "Year-over-year",
+    "comprehensive": "Comprehensive",
+    "totalReports": "Total Reports",
+    "verifiedReports": "Verified Reports",
+    "activeUsers": "Active Users",
+    "avgResponseTime": "Avg Response Time",
+    "monthlyTrends": "Monthly Trends",
+    "reports": "Reports",
+    "verified": "Verified",
+    "accuracy": "Accuracy",
+    "hazardDistribution": "Hazard Distribution",
+    "severityBreakdown": "Severity Breakdown",
+    "count": "Count",
+    "seasonalAnalysis": "Seasonal Analysis",
+    "avgSeverity": "Avg Severity",
+    "responseTime": "Response Time",
+    "dominantHazards": "Dominant Hazards"
+  },
+  "loading": {
+    "tagline": "Protecting Our Coasts Together",
+    "initializing": "Initializing CoastGuard...",
+    "connectingServers": "Connecting to servers...",
+    "loadingMaps": "Loading interactive maps...",
+    "preparingDashboard": "Preparing your dashboard...",
+    "almostReady": "Almost ready!"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "markRead": "Mark as Read",
+    "markAllRead": "Mark All as Read",
+    "noNotifications": "No new notifications",
+    "newReport": "New report submitted",
+    "reportVerified": "Your report has been verified",
+    "reportRejected": "Your report was rejected",
+    "systemUpdate": "System update available"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "view": "View",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "date": "Date",
+    "time": "Time",
+    "status": "Status",
+    "actions": "Actions",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "errors": {
+    "networkError": "Network connection error",
+    "serverError": "Server error occurred",
+    "validationError": "Please check your input",
+    "authError": "Authentication failed",
+    "notFound": "Page not found",
+    "accessDenied": "Access denied",
+    "sessionExpired": "Session expired, please login again"
+  },
+  "help": {
+    "whatsapp": "WhatsApp Help",
+    "whatsappTooltip": "Get instant help via WhatsApp"
+  },
+  "accuracy": {
+    "title": "AI Analysis Accuracy",
+    "excellent": "Excellent",
+    "veryHigh": "Very High",
+    "high": "High", 
+    "good": "Good",
+    "needsReview": "Needs Review",
+    "analyzing": "Analyzing accuracy...",
+    "viewAnalysis": "View AI Analysis Accuracy",
+    "uploadAccuracy": "Upload Analysis Complete",
+    "detailedAnalysis": "Detailed analysis may show different accuracy than initial assessment",
+    "highAccuracyNote": "High accuracy indicates strong evidence and clear documentation"
+  }
+}

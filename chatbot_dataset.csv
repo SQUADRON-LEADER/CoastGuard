@@ -1,0 +1,201 @@
+id,user_input,bot_response
+1,How do I upload an image?,Click the upload button and choose a photo. I’ll analyze it for natural hazards.
+2,Can you detect hazards in my photo?,"Yes! Upload it and I’ll check for floods, earthquakes, wildfires, and more."
+3,What happens after I upload?,"I analyze your image, suggest a possible hazard, and send it for community review."
+4,Can I take a live photo?,"Yes, you can use your camera directly to upload."
+5,Do I need internet to upload?,"Yes, uploading and detection require an internet connection."
+6,What formats are supported?,"You can upload JPG, PNG, or JPEG images."
+7,Can I upload videos?,"Currently, only images are supported. Video support is coming soon."
+8,What if image is blurry?,Blurry images may reduce accuracy. Please upload clear photos if possible.
+9,Can I re-upload an image?,"Yes, you can delete and re-upload anytime."
+10,What if AI detects wrong hazard?,Don’t worry—community members can vote and correct it.
+11,How do I upload an image?,Click the upload button and choose a photo. I’ll analyze it for natural hazards.
+12,Can you detect hazards in my photo?,"Yes! Upload it and I’ll check for floods, earthquakes, wildfires, and more."
+13,What happens after I upload?,"I analyze your image, suggest a possible hazard, and send it for community review."
+14,Can I take a live photo?,"Yes, you can use your camera directly to upload."
+15,Do I need internet to upload?,"Yes, uploading and detection require an internet connection."
+16,What formats are supported?,"You can upload JPG, PNG, or JPEG images."
+17,Can I upload videos?,"Currently, only images are supported. Video support is coming soon."
+18,What if image is blurry?,Blurry images may reduce accuracy. Please upload clear photos if possible.
+19,Can I re-upload an image?,"Yes, you can delete and re-upload anytime."
+20,What if AI detects wrong hazard?,Don’t worry—community members can vote and correct it.
+21,How do I upload an image?,Click the upload button and choose a photo. I’ll analyze it for natural hazards.
+22,Can you detect hazards in my photo?,"Yes! Upload it and I’ll check for floods, earthquakes, wildfires, and more."
+23,What happens after I upload?,"I analyze your image, suggest a possible hazard, and send it for community review."
+24,Can I take a live photo?,"Yes, you can use your camera directly to upload."
+25,Do I need internet to upload?,"Yes, uploading and detection require an internet connection."
+26,What formats are supported?,"You can upload JPG, PNG, or JPEG images."
+27,Can I upload videos?,"Currently, only images are supported. Video support is coming soon."
+28,What if image is blurry?,Blurry images may reduce accuracy. Please upload clear photos if possible.
+29,Can I re-upload an image?,"Yes, you can delete and re-upload anytime."
+30,What if AI detects wrong hazard?,Don’t worry—community members can vote and correct it.
+31,How do I upload an image?,Click the upload button and choose a photo. I’ll analyze it for natural hazards.
+32,Can you detect hazards in my photo?,"Yes! Upload it and I’ll check for floods, earthquakes, wildfires, and more."
+33,What happens after I upload?,"I analyze your image, suggest a possible hazard, and send it for community review."
+34,Can I take a live photo?,"Yes, you can use your camera directly to upload."
+35,Do I need internet to upload?,"Yes, uploading and detection require an internet connection."
+36,What formats are supported?,"You can upload JPG, PNG, or JPEG images."
+37,Can I upload videos?,"Currently, only images are supported. Video support is coming soon."
+38,What if image is blurry?,Blurry images may reduce accuracy. Please upload clear photos if possible.
+39,Can I re-upload an image?,"Yes, you can delete and re-upload anytime."
+40,What if AI detects wrong hazard?,Don’t worry—community members can vote and correct it.
+41,How do I upload an image?,Click the upload button and choose a photo. I’ll analyze it for natural hazards.
+42,Can you detect hazards in my photo?,"Yes! Upload it and I’ll check for floods, earthquakes, wildfires, and more."
+43,What happens after I upload?,"I analyze your image, suggest a possible hazard, and send it for community review."
+44,Can I take a live photo?,"Yes, you can use your camera directly to upload."
+45,Do I need internet to upload?,"Yes, uploading and detection require an internet connection."
+46,What formats are supported?,"You can upload JPG, PNG, or JPEG images."
+47,Can I upload videos?,"Currently, only images are supported. Video support is coming soon."
+48,What if image is blurry?,Blurry images may reduce accuracy. Please upload clear photos if possible.
+49,Can I re-upload an image?,"Yes, you can delete and re-upload anytime."
+50,What if AI detects wrong hazard?,Don’t worry—community members can vote and correct it.
+51,Who checks my report?,Other people in the same location can confirm if the hazard detection is correct.
+52,Why do others need to validate?,Community validation increases accuracy before sending reports to NGOs.
+53,Can I validate other reports?,Yes! You can review images from your area and vote if the detection is right or wrong.
+54,What if people disagree?,"If there’s disagreement, the report goes for manual verification."
+55,Do I get notified if others confirm?,"Yes, you’ll get a notification once your report is validated."
+56,Can I comment on reports?,"Yes, you can add short comments for clarity."
+57,Do fake votes affect reports?,"No, suspicious or spam votes are filtered out automatically."
+58,What if no one validates?,"If no one validates, the report still goes to NGOs but with a lower confidence score."
+59,Can I earn points for validating?,"Yes, you earn community points for validating correctly."
+60,Can I see reports from other places?,You can only see reports from your area for accurate validation.
+61,Who checks my report?,Other people in the same location can confirm if the hazard detection is correct.
+62,Why do others need to validate?,Community validation increases accuracy before sending reports to NGOs.
+63,Can I validate other reports?,Yes! You can review images from your area and vote if the detection is right or wrong.
+64,What if people disagree?,"If there’s disagreement, the report goes for manual verification."
+65,Do I get notified if others confirm?,"Yes, you’ll get a notification once your report is validated."
+66,Can I comment on reports?,"Yes, you can add short comments for clarity."
+67,Do fake votes affect reports?,"No, suspicious or spam votes are filtered out automatically."
+68,What if no one validates?,"If no one validates, the report still goes to NGOs but with a lower confidence score."
+69,Can I earn points for validating?,"Yes, you earn community points for validating correctly."
+70,Can I see reports from other places?,You can only see reports from your area for accurate validation.
+71,Who checks my report?,Other people in the same location can confirm if the hazard detection is correct.
+72,Why do others need to validate?,Community validation increases accuracy before sending reports to NGOs.
+73,Can I validate other reports?,Yes! You can review images from your area and vote if the detection is right or wrong.
+74,What if people disagree?,"If there’s disagreement, the report goes for manual verification."
+75,Do I get notified if others confirm?,"Yes, you’ll get a notification once your report is validated."
+76,Can I comment on reports?,"Yes, you can add short comments for clarity."
+77,Do fake votes affect reports?,"No, suspicious or spam votes are filtered out automatically."
+78,What if no one validates?,"If no one validates, the report still goes to NGOs but with a lower confidence score."
+79,Can I earn points for validating?,"Yes, you earn community points for validating correctly."
+80,Can I see reports from other places?,You can only see reports from your area for accurate validation.
+81,Who checks my report?,Other people in the same location can confirm if the hazard detection is correct.
+82,Why do others need to validate?,Community validation increases accuracy before sending reports to NGOs.
+83,Can I validate other reports?,Yes! You can review images from your area and vote if the detection is right or wrong.
+84,What if people disagree?,"If there’s disagreement, the report goes for manual verification."
+85,Do I get notified if others confirm?,"Yes, you’ll get a notification once your report is validated."
+86,Can I comment on reports?,"Yes, you can add short comments for clarity."
+87,Do fake votes affect reports?,"No, suspicious or spam votes are filtered out automatically."
+88,What if no one validates?,"If no one validates, the report still goes to NGOs but with a lower confidence score."
+89,Can I earn points for validating?,"Yes, you earn community points for validating correctly."
+90,Can I see reports from other places?,You can only see reports from your area for accurate validation.
+91,Who checks my report?,Other people in the same location can confirm if the hazard detection is correct.
+92,Why do others need to validate?,Community validation increases accuracy before sending reports to NGOs.
+93,Can I validate other reports?,Yes! You can review images from your area and vote if the detection is right or wrong.
+94,What if people disagree?,"If there’s disagreement, the report goes for manual verification."
+95,Do I get notified if others confirm?,"Yes, you’ll get a notification once your report is validated."
+96,Can I comment on reports?,"Yes, you can add short comments for clarity."
+97,Do fake votes affect reports?,"No, suspicious or spam votes are filtered out automatically."
+98,What if no one validates?,"If no one validates, the report still goes to NGOs but with a lower confidence score."
+99,Can I earn points for validating?,"Yes, you earn community points for validating correctly."
+100,Can I see reports from other places?,You can only see reports from your area for accurate validation.
+101,When do NGOs see my report?,"After community validation, NGOs receive the verified report."
+102,What do NGOs see?,"They see your image, location, and community validation result."
+103,How fast do NGOs respond?,"Response time depends on the NGO, usually within a few hours."
+104,Can I talk to NGOs directly?,"Yes, NGOs can message you through the app if they need more details."
+105,What if my report is urgent?,"Urgent reports are flagged and sent immediately to NGOs, even without validation."
+106,How do I know if NGO accepted?,You’ll get a status update when NGOs acknowledge your report.
+107,Do NGOs provide proof of action?,"Yes, they can upload updates, photos, or notes in the app."
+108,Can I request supplies?,"Yes, you can add a request note when uploading your image."
+109,Do NGOs get my personal info?,"No, NGOs only see your username and location (if you allow)."
+110,Can NGOs reject reports?,"Yes, NGOs may reject invalid or duplicate reports after review."
+111,When do NGOs see my report?,"After community validation, NGOs receive the verified report."
+112,What do NGOs see?,"They see your image, location, and community validation result."
+113,How fast do NGOs respond?,"Response time depends on the NGO, usually within a few hours."
+114,Can I talk to NGOs directly?,"Yes, NGOs can message you through the app if they need more details."
+115,What if my report is urgent?,"Urgent reports are flagged and sent immediately to NGOs, even without validation."
+116,How do I know if NGO accepted?,You’ll get a status update when NGOs acknowledge your report.
+117,Do NGOs provide proof of action?,"Yes, they can upload updates, photos, or notes in the app."
+118,Can I request supplies?,"Yes, you can add a request note when uploading your image."
+119,Do NGOs get my personal info?,"No, NGOs only see your username and location (if you allow)."
+120,Can NGOs reject reports?,"Yes, NGOs may reject invalid or duplicate reports after review."
+121,When do NGOs see my report?,"After community validation, NGOs receive the verified report."
+122,What do NGOs see?,"They see your image, location, and community validation result."
+123,How fast do NGOs respond?,"Response time depends on the NGO, usually within a few hours."
+124,Can I talk to NGOs directly?,"Yes, NGOs can message you through the app if they need more details."
+125,What if my report is urgent?,"Urgent reports are flagged and sent immediately to NGOs, even without validation."
+126,How do I know if NGO accepted?,You’ll get a status update when NGOs acknowledge your report.
+127,Do NGOs provide proof of action?,"Yes, they can upload updates, photos, or notes in the app."
+128,Can I request supplies?,"Yes, you can add a request note when uploading your image."
+129,Do NGOs get my personal info?,"No, NGOs only see your username and location (if you allow)."
+130,Can NGOs reject reports?,"Yes, NGOs may reject invalid or duplicate reports after review."
+131,When do NGOs see my report?,"After community validation, NGOs receive the verified report."
+132,What do NGOs see?,"They see your image, location, and community validation result."
+133,How fast do NGOs respond?,"Response time depends on the NGO, usually within a few hours."
+134,Can I talk to NGOs directly?,"Yes, NGOs can message you through the app if they need more details."
+135,What if my report is urgent?,"Urgent reports are flagged and sent immediately to NGOs, even without validation."
+136,How do I know if NGO accepted?,You’ll get a status update when NGOs acknowledge your report.
+137,Do NGOs provide proof of action?,"Yes, they can upload updates, photos, or notes in the app."
+138,Can I request supplies?,"Yes, you can add a request note when uploading your image."
+139,Do NGOs get my personal info?,"No, NGOs only see your username and location (if you allow)."
+140,Can NGOs reject reports?,"Yes, NGOs may reject invalid or duplicate reports after review."
+141,When do NGOs see my report?,"After community validation, NGOs receive the verified report."
+142,What do NGOs see?,"They see your image, location, and community validation result."
+143,How fast do NGOs respond?,"Response time depends on the NGO, usually within a few hours."
+144,Can I talk to NGOs directly?,"Yes, NGOs can message you through the app if they need more details."
+145,What if my report is urgent?,"Urgent reports are flagged and sent immediately to NGOs, even without validation."
+146,How do I know if NGO accepted?,You’ll get a status update when NGOs acknowledge your report.
+147,Do NGOs provide proof of action?,"Yes, they can upload updates, photos, or notes in the app."
+148,Can I request supplies?,"Yes, you can add a request note when uploading your image."
+149,Do NGOs get my personal info?,"No, NGOs only see your username and location (if you allow)."
+150,Can NGOs reject reports?,"Yes, NGOs may reject invalid or duplicate reports after review."
+151,What should I do during a flood?,"Stay on higher ground, avoid floodwaters, and wait for rescue."
+152,What should I do during an earthquake?,"Drop, cover, and hold on. Move to a safe area."
+153,What should I do during a wildfire?,"Move away from fire zones, cover your nose with cloth, and follow evacuation routes."
+154,What should I do during a landslide?,"Stay alert, move to stable ground, and avoid slopes."
+155,What should I do during a cyclone?,"Stay indoors, keep emergency supplies ready, and avoid coastal areas."
+156,What should I do during a drought?,"Conserve water, store clean drinking water, and stay hydrated."
+157,Can you give safety tips?,Yes! Ask about any hazard and I’ll provide safety guidance.
+158,Where can I find shelters?,Shelter information is shared by NGOs once they receive your report.
+159,How can I prepare for disasters?,"Keep an emergency kit, stay informed, and know evacuation routes."
+160,What emergency number should I call?,"In most regions, you can call 112 for emergency services."
+161,What should I do during a flood?,"Stay on higher ground, avoid floodwaters, and wait for rescue."
+162,What should I do during an earthquake?,"Drop, cover, and hold on. Move to a safe area."
+163,What should I do during a wildfire?,"Move away from fire zones, cover your nose with cloth, and follow evacuation routes."
+164,What should I do during a landslide?,"Stay alert, move to stable ground, and avoid slopes."
+165,What should I do during a cyclone?,"Stay indoors, keep emergency supplies ready, and avoid coastal areas."
+166,What should I do during a drought?,"Conserve water, store clean drinking water, and stay hydrated."
+167,Can you give safety tips?,Yes! Ask about any hazard and I’ll provide safety guidance.
+168,Where can I find shelters?,Shelter information is shared by NGOs once they receive your report.
+169,How can I prepare for disasters?,"Keep an emergency kit, stay informed, and know evacuation routes."
+170,What emergency number should I call?,"In most regions, you can call 112 for emergency services."
+171,What should I do during a flood?,"Stay on higher ground, avoid floodwaters, and wait for rescue."
+172,What should I do during an earthquake?,"Drop, cover, and hold on. Move to a safe area."
+173,What should I do during a wildfire?,"Move away from fire zones, cover your nose with cloth, and follow evacuation routes."
+174,What should I do during a landslide?,"Stay alert, move to stable ground, and avoid slopes."
+175,What should I do during a cyclone?,"Stay indoors, keep emergency supplies ready, and avoid coastal areas."
+176,What should I do during a drought?,"Conserve water, store clean drinking water, and stay hydrated."
+177,Can you give safety tips?,Yes! Ask about any hazard and I’ll provide safety guidance.
+178,Where can I find shelters?,Shelter information is shared by NGOs once they receive your report.
+179,How can I prepare for disasters?,"Keep an emergency kit, stay informed, and know evacuation routes."
+180,What emergency number should I call?,"In most regions, you can call 112 for emergency services."
+181,What should I do during a flood?,"Stay on higher ground, avoid floodwaters, and wait for rescue."
+182,What should I do during an earthquake?,"Drop, cover, and hold on. Move to a safe area."
+183,What should I do during a wildfire?,"Move away from fire zones, cover your nose with cloth, and follow evacuation routes."
+184,What should I do during a landslide?,"Stay alert, move to stable ground, and avoid slopes."
+185,What should I do during a cyclone?,"Stay indoors, keep emergency supplies ready, and avoid coastal areas."
+186,What should I do during a drought?,"Conserve water, store clean drinking water, and stay hydrated."
+187,Can you give safety tips?,Yes! Ask about any hazard and I’ll provide safety guidance.
+188,Where can I find shelters?,Shelter information is shared by NGOs once they receive your report.
+189,How can I prepare for disasters?,"Keep an emergency kit, stay informed, and know evacuation routes."
+190,What emergency number should I call?,"In most regions, you can call 112 for emergency services."
+191,What should I do during a flood?,"Stay on higher ground, avoid floodwaters, and wait for rescue."
+192,What should I do during an earthquake?,"Drop, cover, and hold on. Move to a safe area."
+193,What should I do during a wildfire?,"Move away from fire zones, cover your nose with cloth, and follow evacuation routes."
+194,What should I do during a landslide?,"Stay alert, move to stable ground, and avoid slopes."
+195,What should I do during a cyclone?,"Stay indoors, keep emergency supplies ready, and avoid coastal areas."
+196,What should I do during a drought?,"Conserve water, store clean drinking water, and stay hydrated."
+197,Can you give safety tips?,Yes! Ask about any hazard and I’ll provide safety guidance.
+198,Where can I find shelters?,Shelter information is shared by NGOs once they receive your report.
+199,How can I prepare for disasters?,"Keep an emergency kit, stay informed, and know evacuation routes."
+200,What emergency number should I call?,"In most regions, you can call 112 for emergency services."

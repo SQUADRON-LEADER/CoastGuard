@@ -1,0 +1,54 @@
+# Root .gitignore — covers entire monorepo
+
+# Node
+node_modules
+*.log
+npm-debug.log*
+
+# Frontend build output
+frontend/dist
+frontend/dist-ssr
+frontend/.env
+
+# Environment secrets (never commit real keys)
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+
+# Backend secrets & uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Large local ML datasets (download separately; avoids GitHub 100MB limit)
+hazard_dataset/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ML model files (large binary — use Git LFS or external storage)
+*.h5
+*.pkl
+*.joblib
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Misc
+*.local

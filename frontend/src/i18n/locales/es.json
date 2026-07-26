@@ -1,0 +1,193 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "dashboard": "Panel",
+    "reports": "Reportes", 
+    "verify": "Centro de Verificación",
+    "analytics": "Análisis",
+    "validation": "Centro de Validación",
+    "community": "Comunidad",
+    "leaderboard": "Tabla de Líderes",
+    "notifications": "Notificaciones",
+    "profile": "Perfil",
+    "logout": "Cerrar Sesión",
+    "login": "Iniciar Sesión",
+    "register": "Registrarse",
+    "searchPlaceholder": "Buscar reportes, usuarios, ubicaciones..."
+  },
+  "auth": {
+    "loginTitle": "Iniciar Sesión en CoastGuard",
+    "registerTitle": "Únete a CoastGuard",
+    "email": "Correo Electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar Contraseña",
+    "name": "Nombre Completo",
+    "phone": "Número de Teléfono",
+    "role": "Rol",
+    "language": "Idioma Preferido",
+    "loginButton": "Iniciar Sesión",
+    "registerButton": "Crear Cuenta",
+    "forgotPassword": "¿Olvidaste tu Contraseña?",
+    "switchToRegister": "¿No tienes cuenta? Regístrate",
+    "switchToLogin": "¿Ya tienes cuenta? Inicia sesión",
+    "roleUser": "Usuario General",
+    "roleCommunity": "Miembro de la Comunidad",
+    "roleProtector": "Oficial de Guardia Costera"
+  },
+  "landing": {
+    "hero": {
+      "title": "CoastGuard",
+      "tagline": "Alertas Tempranas del Pueblo, para el Pueblo",
+      "subtitle": "Empoderando a las comunidades costeras con reportes de desastres en tiempo real e inteligencia colaborativa de seguridad",
+      "joinCommunity": "Únete a Nuestra Comunidad",
+      "signIn": "Iniciar Sesión"
+    },
+    "problem": {
+      "title": "Protegiendo Nuestras Comunidades Costeras Juntos",
+      "description": "La vasta costa de la India enfrenta amenazas crecientes del cambio climático y clima extremo. Los sistemas tradicionales de respuesta a desastres a menudo pierden señales tempranas críticas de las comunidades en el terreno. CoastGuard cierra esta brecha con reportes impulsados por la comunidad y análisis inteligentes."
+    },
+    "stats": {
+      "earlyDetection": {
+        "title": "Detección Temprana",
+        "description": "Las comunidades a menudo detectan peligros primero. Nuestra plataforma captura estas señales tempranas vitales para permitir tiempos de respuesta más rápidos y mejor preparación."
+      },
+      "communityCare": {
+        "title": "Cuidado Comunitario", 
+        "description": "Cuando los vecinos cuidan a los vecinos, todos se mantienen más seguros. Nuestra plataforma fortalece los lazos comunitarios a través de responsabilidad compartida y acción colectiva."
+      },
+      "smartAnalytics": {
+        "title": "Análisis Inteligente",
+        "description": "Transforma reportes dispersos en inteligencia accionable. Nuestros análisis impulsados por IA ayudan a los oficiales a tomar decisiones informadas y asignar recursos efectivamente."
+      }
+    },
+    "userTypes": {
+      "title": "Tres Formas de Hacer la Diferencia",
+      "subtitle": "Ya seas miembro de la comunidad, oficial o analista, CoastGuard tiene herramientas diseñadas para tu rol único",
+      "community": {
+        "title": "Usuarios de la Comunidad",
+        "description": "Sube fotos, documentos y reportes. Vota en temas locales y ayuda a verificar información comunitaria.",
+        "features": {
+          "upload": "Subir reportes con ubicación",
+          "voting": "Sistema de votación comunitaria", 
+          "insights": "Conocimientos y actualizaciones locales"
+        },
+        "cta": "Únete como Usuario"
+      },
+      "protectors": {
+        "title": "Protectores y Guías",
+        "description": "Verifica cargas de la comunidad, responde a problemas de alta prioridad y guía los esfuerzos de seguridad comunitaria.",
+        "features": {
+          "dashboard": "Panel de verificación",
+          "response": "Acciones de respuesta",
+          "insights": "Conocimientos comunitarios"
+        },
+        "cta": "Únete como Protector"
+      },
+      "analysts": {
+        "title": "Guías Perspicaces",
+        "description": "Transforma datos en conocimientos accionables con análisis avanzados y modelado predictivo.",
+        "features": {
+          "monitoring": "Monitoreo de redes sociales",
+          "analytics": "Análisis predictivo",
+          "trends": "Análisis de tendencias"
+        },
+        "cta": "Únete como Analista"
+      }
+    },
+    "features": {
+      "title": "Características Poderosas para la Seguridad Costera",
+      "realTime": {
+        "title": "Reportes en Tiempo Real",
+        "description": "Alertas instantáneas de peligros de la comunidad"
+      },
+      "maps": {
+        "title": "Mapas Interactivos",
+        "description": "Seguimiento visual de incidentes y análisis de puntos críticos"
+      },
+      "analytics": {
+        "title": "Análisis Inteligente", 
+        "description": "Conocimientos y predicciones impulsados por IA"
+      },
+      "verification": {
+        "title": "Alertas Verificadas",
+        "description": "Validación verificada por la comunidad y oficial"
+      }
+    },
+    "cta": {
+      "title": "¿Listo para Hacer la Diferencia?",
+      "subtitle": "Únete a miles de residentes costeros, oficiales y analistas trabajando juntos para mantener nuestras comunidades seguras",
+      "button": "Comienza Hoy"
+    }
+  },
+  "dashboard": {
+    "welcome": "Bienvenido de vuelta",
+    "subtitle": "Gracias por ser un Ayudante de la Comunidad y mantener nuestras costas seguras",
+    "quickActions": "Acciones Rápidas",
+    "recentReports": "Reportes Recientes",
+    "reportHazard": "Reportar Peligro",
+    "viewReports": "Ver Reportes",
+    "analytics": "Análisis",
+    "notifications": "Notificaciones",
+    "noReports": "No se encontraron reportes",
+    "loadingReports": "Cargando reportes...",
+    "stats": {
+      "myUploads": "Mis Subidas",
+      "localReports": "Reportes Locales",
+      "newUpdates": "Nuevas Actualizaciones",
+      "verifiedReports": "Reportes Verificados"
+    }
+  },
+  "verifier": {
+    "title": "Panel de Verificador",
+    "subtitle": "Sistema avanzado de gestión de verificación",
+    "export": "Exportar",
+    "refresh": "Actualizar",
+    "stats": {
+      "pendingReview": "Pendiente de Revisión",
+      "verifiedToday": "Verificado Hoy",
+      "highPriority": "Alta Prioridad",
+      "totalProcessed": "Total Procesado"
+    }
+  },
+  "analytics": {
+    "title": "Panel de Análisis",
+    "subtitle": "Perspectivas e tendencias integrales de la plataforma",
+    "overview": "Resumen",
+    "trends": "Tendencias",
+    "hotspots": "Puntos Críticos",
+    "timeRange": {
+      "24h": "Últimas 24 Horas",
+      "7d": "Últimos 7 Días",
+      "30d": "Últimos 30 Días",
+      "90d": "Últimos 90 Días"
+    },
+    "metrics": {
+      "totalReports": "Total de Reportes",
+      "verifiedReports": "Reportes Verificados",
+      "activeUsers": "Usuarios Activos",
+      "avgResponseTime": "Tiempo de Respuesta Promedio"
+    }
+  },
+  "loading": {
+    "tagline": "Protegiendo Nuestras Costas Juntos",
+    "initializing": "Inicializando CoastGuard...",
+    "connectingServers": "Conectando a servidores...",
+    "loadingMaps": "Cargando mapas interactivos...",
+    "preparingDashboard": "Preparando tu panel...",
+    "almostReady": "¡Casi listo!"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito", 
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Eliminar"
+  },
+  "help": {
+    "whatsapp": "Ayuda WhatsApp",
+    "whatsappTooltip": "Obtén ayuda instantánea vía WhatsApp"
+  }
+}
