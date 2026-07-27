@@ -2129,6 +2129,57 @@ app.post('/api/relief-camps', (req, res) => {
   }
 });
 
+// ── Weather Advisory & Audio Siren REST API ─────────────────────────────────
+app.get('/api/weather/advisories', (req, res) => {
+  try {
+    const advisories = [
+      {
+        region: 'Bay of Bengal & Tamil Nadu',
+        windSpeedKnots: 28,
+        waveHeightMeters: 3.2,
+        warningLevel: 'SEVERE_DEPRESSION',
+        summary: 'Deep depression over Southwest Bay of Bengal. Fishermen strictly advised not to venture into deep sea.',
+        issuedAt: new Date().toISOString(),
+      },
+      {
+        region: 'Arabian Sea & Kerala Coast',
+        windSpeedKnots: 19,
+        waveHeightMeters: 2.1,
+        warningLevel: 'ADVISORY',
+        summary: 'Squally wind speed reaching 40-50 kmph along Kerala and Lakshadweep coast.',
+        issuedAt: new Date().toISOString(),
+      },
+    ];
+
+    res.json({ success: true, count: advisories.length, data: advisories });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+app.get('/api/audio-alerts', (req, res) => {
+  try {
+    const { lang = 'en' } = req.query;
+    const prompts = {
+      en: 'Emergency Siren Alert! High wave and storm warning issued for coastal areas. Fishermen must return to port immediately.',
+      ta: 'அவசர எச்சரிக்கை! கடற்கரை பகுதிகளில் பலத்த காற்று மற்றும் புயல் எச்சரிக்கை விடுக்கப்பட்டுள்ளது.',
+      ml: 'തീരദേശത്ത് ശക്തമായ കാറ്റിനും തിരമാലകൾക്കും സാധ്യതയുണ്ട്. മത്സ്യത്തൊഴിലാളികൾ ഉടൻ തീരത്തേക്ക് മടങ്ങണം.',
+      hi: 'आपातकालीन चेतावनी! तटीय क्षेत्रों में ऊंची लहरें और चक्रवाती तूफान का अलर्ट जारी।',
+    };
+
+    res.json({
+      success: true,
+      lang,
+      audioPromptText: prompts[lang] || prompts.en,
+      sirenSignalUrl: '/assets/emergency-siren.mp3',
+      broadcastFrequencyHz: 156.8, // VHF Channel 16
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+
 
 
 
