@@ -140,3 +140,31 @@ streamlit run app.py
 | Realtime | Socket.IO |
 | Notifications | Twilio, Nodemailer |
 | AI Chat | Google Gemini |
+
+---
+
+## 🌊 Disaster Relief & Safety Features
+
+- **Live Coastal Weather Advisory Banner (`/weather`)**: Real-time IMD ocean alerts, wind speeds (knots), wave heights, and storm surge warnings across coastal states.
+- **Emergency Contact Directory (`/emergency-contacts`)**: 1-click dialer, emergency SMS payload generator, Indian Coast Guard (1554), NDRF (1078), and marine police helplines.
+- **Disaster Relief Camp Tracker (`/shelters`)**: Real-time shelter occupancy, food supply status, medical team availability, and Google Maps direction dispatch.
+- **Multilingual Audio Warning Broadcast (`/guides` / Floating)**: Text-to-Speech audio siren warnings in 8 regional languages (Tamil, Malayalam, Telugu, Gujarati, Marathi, Bengali, Hindi, English).
+- **Fisherman Geofence & Maritime Boundary Overlay (`/map`)**: Distance calculation to International Maritime Boundary Line (IBL) with proximity alerts.
+- **Coastal Survival Guides (`/guides`)**: Actionable protocols for Cyclones, Tsunamis, Boat Capsize, Oil Spills, and Storm Surges.
+- **Hazard Heatmap Analytics (`/analytics`)**: Temporal trend mapping, regional vulnerability indices, and AI hazard confidence metrics.
+- **Community Volunteer Dispatch (`/volunteers`)**: Volunteer registry, skill checklist, and emergency task assignment portal.
+
+---
+
+## 📡 REST API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/emergency-contacts` | Fetch emergency helplines with region & category filter |
+| `POST` | `/api/geofence/check-risk` | Evaluate maritime border distance & safety risk score |
+| `GET` | `/api/relief-camps` | Fetch active coastal relief shelters & occupancy statistics |
+| `POST` | `/api/relief-camps` | Register new disaster shelter facility |
+| `GET` | `/api/weather/advisories` | Fetch IMD coastal meteorological bulletins |
+| `GET` | `/api/audio-alerts` | Fetch multilingual voice broadcast audio payloads |
+| `GET` | `/api/reports/export/csv` | Download verified disaster reports in CSV format |
+
