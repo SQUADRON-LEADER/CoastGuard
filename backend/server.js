@@ -1925,11 +1925,77 @@ Analyze the multi-hazard correlations and return ONLY valid JSON (no markdown, n
     const parsed = JSON.parse(jsonStr);
 
     res.json({ success: true, analysis: parsed });
+
+// ── Emergency Contact Directory REST API ─────────────────────────────────────
+const EMERGENCY_CONTACTS_DB = [
+  {
+    id: 'icg-sos',
+    name: 'Indian Coast Guard Maritime Helpline',
+    category: 'National',
+    phone: '1554',
+    region: 'All Coastal India',
+    description: 'Toll-free emergency hotline for vessel distress, capsizing, and search & rescue operations.',
+    available: '24/7 Toll-Free',
+  },
+  {
+    id: 'ndrf-hq',
+    name: 'NDRF Central Control Room',
+    category: 'National',
+    phone: '1078',
+    region: 'National',
+    description: 'National Disaster Response Force emergency deployment and evacuation dispatch.',
+    available: '24/7 Toll-Free',
+  },
+  {
+    id: 'sdma-kerala',
+    name: 'Coastal Disaster Management Cell',
+    category: 'State',
+    phone: '1070',
+    region: 'Kerala & SW Coast',
+    description: 'State disaster emergency cell for coastal inundation and shelter coordination.',
+    available: '24/7 Support',
+  },
+  {
+    id: 'marine-police',
+    name: 'Coastal Security Police Patrol',
+    category: 'Police',
+    phone: '1093',
+    region: 'Tamil Nadu & Puducherry',
+    description: 'Coastal border patrol, unauthorized vessel detection, and harbor safety.',
+    available: '24/7 Patrol',
+  },
+  {
+    id: 'marine-ambulance',
+    name: 'Pratheeksha Marine Ambulance',
+    category: 'Medical',
+    phone: '108',
+    region: 'Southern Maritime Zones',
+    description: 'Emergency sea ambulance equipped with ICU setup for offshore medical evacuation.',
+    available: '24/7 Emergency',
+  },
+];
+
+app.get('/api/emergency-contacts', (req, res) => {
+  try {
+    const { category, search } = req.query;
+    let results = EMERGENCY_CONTACTS_DB;
+
+    if (category && category !== 'All') {
+      results = results.filter((c) => c.category.toLowerCase() === category.toLowerCase());
+    }
+
+    if (search) {
+      const q = search.toLowerCase();
+      results = results.filter((c) => c.name.toLowerCase().includes(q) || c.region.toLowerCase().includes(q));
+    }
+
+    res.json({ success: true, count: results.length, data: results });
   } catch (err) {
-    console.error('AI correlation error:', err.message);
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ success: false, error: err.message });
   }
 });
+
+
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
