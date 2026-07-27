@@ -65,6 +65,10 @@ const Header: React.FC = () => {
                 {[
                   { to: '/dashboard', label: user?.role === 'verifier_protector' ? 'Dashboard (Verifier)' : user?.role === 'community_validator' ? 'Dashboard (Community)' : t('nav.dashboard') },
                   { to: '/map', label: 'Interactive Map' },
+                  { to: '/weather', label: 'Weather & Tide' },
+                  { to: '/shelters', label: 'Relief Camps' },
+                  { to: '/emergency-contacts', label: 'SOS Helplines' },
+                  { to: '/guides', label: 'Survival Guides' },
                   ...(user?.role === 'community_user' ? [{ to: '/upload', label: 'Submit Report' }] : []),
                   ...(user?.role === 'verifier_protector' ? [
                     { to: '/verify', label: t('nav.verify') },
