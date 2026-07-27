@@ -2179,6 +2179,35 @@ app.get('/api/audio-alerts', (req, res) => {
   }
 });
 
+// ── Verified Hazard Report CSV Export REST API ────────────────────────────────
+app.get('/api/reports/export/csv', async (req, res) => {
+  try {
+    const reports = await DisasterReport.find().limit(100).lean();
+
+    const headers = ['ReportID', 'Title', 'HazardType', 'Severity', 'Location', 'Latitude', 'Longitude', 'Status', 'CreatedAt'];
+    const rows = (reports || []).map((r) => [
+      r._id.toString(),
+      `"${(r.title || '').replace(/"/g, '""')}"`,
+      r.hazardType || 'Unclassified',
+      r.severity || 'Medium',
+      `"${(r.locationAddress || '').replace(/"/g, '""')}"`,
+      r.location?.lat || '',
+      r.location?.lng || '',
+      r.status || 'Pending',
+      r.createdAt ? new Date(r.createdAt).toISOString() : '',
+    ]);
+
+    const csvContent = [headers.join(','), ...rows.map((row) => row.join(','))].join('\n');
+
+    res.setHeader('Content-Type', 'text/csv');
+    res.setHeader('Content-Disposition', `attachment; filename=coastguard_disaster_reports_${Date.now()}.csv`);
+    res.status(200).send(csvContent);
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+
 
 
 
