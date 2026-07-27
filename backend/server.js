@@ -2037,6 +2037,99 @@ app.post('/api/geofence/check-risk', (req, res) => {
   }
 });
 
+// ── Relief Camp Management REST API ──────────────────────────────────────────
+const RELIEF_CAMPS_DB = [
+  {
+    id: 'camp-1',
+    name: 'Government Higher Secondary School Shelter',
+    location: 'Nagapattinam Coastal Road',
+    district: 'Nagapattinam, Tamil Nadu',
+    capacity: 500,
+    occupancy: 340,
+    foodStatus: 'Sufficient',
+    medicalTeam: true,
+    waterSupply: true,
+    status: 'Open & Accepting',
+  },
+  {
+    id: 'camp-2',
+    name: 'St. Joseph Community Hall',
+    location: 'Vizhinjam Fishing Harbor',
+    district: 'Thiruvananthapuram, Kerala',
+    capacity: 300,
+    occupancy: 285,
+    foodStatus: 'Sufficient',
+    medicalTeam: true,
+    waterSupply: true,
+    status: 'Near Capacity',
+  },
+  {
+    id: 'camp-3',
+    name: 'Cyclone Multipurpose Shelter #4',
+    location: 'Paradeep Port Area',
+    district: 'Jagatsinghpur, Odisha',
+    capacity: 1000,
+    occupancy: 420,
+    foodStatus: 'Abundant',
+    medicalTeam: true,
+    waterSupply: true,
+    status: 'Open & Accepting',
+  },
+];
+
+app.get('/api/relief-camps', (req, res) => {
+  try {
+    const { status, district } = req.query;
+    let results = RELIEF_CAMPS_DB;
+
+    if (status && status !== 'All') {
+      results = results.filter((c) => c.status.toLowerCase() === status.toLowerCase());
+    }
+    if (district) {
+      results = results.filter((c) => c.district.toLowerCase().includes(district.toLowerCase()));
+    }
+
+    const totalCapacity = results.reduce((acc, c) => acc + c.capacity, 0);
+    const totalOccupancy = results.reduce((acc, c) => acc + c.occupancy, 0);
+
+    res.json({
+      success: true,
+      summary: { totalCapacity, totalOccupancy, totalCamps: results.length },
+      data: results,
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+app.post('/api/relief-camps', (req, res) => {
+  try {
+    const { name, location, district, capacity, foodStatus } = req.body;
+    if (!name || !district) {
+      return res.status(400).json({ success: false, error: 'Name and district are required.' });
+    }
+
+    const newCamp = {
+      id: `camp-${Date.now()}`,
+      name,
+      location: location || 'Coastal Zone',
+      district,
+      capacity: capacity || 200,
+      occupancy: 0,
+      foodStatus: foodStatus || 'Sufficient',
+      medicalTeam: true,
+      waterSupply: true,
+      status: 'Open & Accepting',
+    };
+
+    RELIEF_CAMPS_DB.push(newCamp);
+    res.status(201).json({ success: true, message: 'Relief camp created successfully.', data: newCamp });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+
 
 
 
