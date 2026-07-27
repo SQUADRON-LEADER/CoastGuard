@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle, XCircle, Flag, MessageCircle, MapPin, Clock, User, AlertTriangle, ThumbsUp, ThumbsDown, Eye } from 'lucide-react';
+import { CheckCircle, XCircle, Flag, MessageCircle, MapPin, Clock, User, AlertTriangle, ThumbsUp, ThumbsDown, Eye, ShieldCheck, FileSearch } from 'lucide-react';
 import { useReports } from '../../context/ReportsContext';
 import { useAuth } from '../../context/AuthContext';
 import { ReportAccuracyDisplay } from '../common/ReportAccuracyDisplay';
@@ -9,8 +9,10 @@ const VerificationPanelSimple: React.FC = () => {
   const { reports, updateReport } = useReports();
   const { user } = useAuth();
   const [filter, setFilter] = useState<'all' | 'pending' | 'flagged'>('pending');
+  const [inspectingReport, setInspectingReport] = useState<any | null>(null);
 
   console.log('VerificationPanelSimple: reports loaded:', reports);
+
 
   // Filter reports based on verification status
   const filteredReports = reports?.filter(report => {
