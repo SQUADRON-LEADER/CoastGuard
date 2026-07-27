@@ -24,6 +24,12 @@ import TwilioDisasterCall from './components/help/TwilioDisasterCall';
 import EvacuationAdvisor from './components/help/EvacuationAdvisor';
 // import VerificationDashboard from './components/verification/VerifierDashboard';
 import CommunityDashboard from './components/verification/CommunityDashboard';
+import WeatherAdvisoryBanner from './components/home/WeatherAdvisoryBanner';
+import EmergencyContactDirectory from './components/help/EmergencyContactDirectory';
+import ReliefCampTracker from './components/help/ReliefCampTracker';
+import DisasterGuides from './components/help/DisasterGuides';
+import VolunteerDispatch from './components/community/VolunteerDispatch';
+
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { isAuthenticated, isLoading } = useAuth();
@@ -167,7 +173,58 @@ const AppRoutes: React.FC = () => {
             </ProtectedRoute>
           } 
         />
+        <Route 
+          path="/weather" 
+          element={
+            <ProtectedRoute>
+              <div className="max-w-7xl mx-auto px-4 py-6">
+                <WeatherAdvisoryBanner />
+              </div>
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/emergency-contacts" 
+          element={
+            <ProtectedRoute>
+              <div className="max-w-7xl mx-auto px-4 py-6">
+                <EmergencyContactDirectory />
+              </div>
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/shelters" 
+          element={
+            <ProtectedRoute>
+              <div className="max-w-7xl mx-auto px-4 py-6">
+                <ReliefCampTracker />
+              </div>
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/guides" 
+          element={
+            <ProtectedRoute>
+              <div className="max-w-7xl mx-auto px-4 py-6">
+                <DisasterGuides />
+              </div>
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/volunteers" 
+          element={
+            <ProtectedRoute>
+              <div className="max-w-7xl mx-auto px-4 py-6">
+                <VolunteerDispatch />
+              </div>
+            </ProtectedRoute>
+          } 
+        />
         <Route path="*" element={<Navigate to="/" replace />} />
+
       </Routes>
       
       {/* Footer - Always visible */}
