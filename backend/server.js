@@ -1995,6 +1995,49 @@ app.get('/api/emergency-contacts', (req, res) => {
   }
 });
 
+// ── Geofence & Maritime Boundary Risk REST API ────────────────────────────────
+app.post('/api/geofence/check-risk', (req, res) => {
+  try {
+    const { lat, lng, vesselId } = req.body;
+    if (lat === undefined || lng === undefined) {
+      return res.status(400).json({ success: false, error: 'Latitude and Longitude are required.' });
+    }
+
+    const latitude = parseFloat(lat);
+    const longitude = parseFloat(lng);
+
+    // Approximate distance calculation to International Maritime Boundary Line (IBL)
+    const baseBorderLat = 10.0;
+    const baseBorderLng = 79.5;
+    const distKm = Math.round(
+      Math.sqrt(Math.pow((latitude - baseBorderLat) * 111, 2) + Math.pow((longitude - baseBorderLng) * 111, 2))
+    );
+
+    let riskLevel = 'SAFE';
+    let alertMessage = 'Vessel within safe territorial fishing waters.';
+    if (distKm < 5) {
+      riskLevel = 'CRITICAL';
+      alertMessage = 'WARNING: Extremely close to International Maritime Boundary Line (IBL)! Reverse vessel heading immediately.';
+    } else if (distKm < 15) {
+      riskLevel = 'WARNING';
+      alertMessage = 'Caution: Approaching maritime boundary buffer zone.';
+    }
+
+    res.json({
+      success: true,
+      vesselId: vesselId || 'UNREGISTERED_VESSEL',
+      coordinates: { latitude, longitude },
+      distanceToBorderKm: distKm,
+      riskLevel,
+      alertMessage,
+      timestamp: new Date().toISOString(),
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+
 
 
 app.listen(PORT, () => {
