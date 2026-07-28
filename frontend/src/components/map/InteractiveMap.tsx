@@ -36,7 +36,9 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
 
-const API_BASE = 'http://localhost:3003';
+import { API_BASE_URL } from '../../services/api';
+
+const API_BASE = API_BASE_URL;
 const AUTO_REFRESH_MS = 60_000;
 const DEFAULT_CENTER: [number, number] = [20.5937, 78.9629];
 const DEFAULT_ZOOM = 5;

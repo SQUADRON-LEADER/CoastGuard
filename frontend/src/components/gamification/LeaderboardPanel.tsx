@@ -15,7 +15,9 @@ import {
 import { LeaderboardEntry, Badge } from '../../types';
 import { formatPoints } from '../../lib/utils';
 
-const API_BASE = 'http://localhost:3003';
+import { API_BASE_URL } from '../../services/api';
+
+const API_BASE = API_BASE_URL;
 
 const LeaderboardPanel: React.FC = () => {
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);

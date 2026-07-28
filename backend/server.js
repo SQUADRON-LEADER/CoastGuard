@@ -135,6 +135,25 @@ app.use('/api/twilio', (req, res, next) => {
   next();
 });
 
+// ── Health Check & Deployment Root Endpoints ──────────────────
+app.get('/', (_req, res) => {
+  res.status(200).json({
+    status: 'online',
+    service: 'CoastGuard Backend API',
+    version: '1.0.0',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'production'
+  });
+});
+
+app.get('/health', (_req, res) => {
+  res.status(200).json({ status: 'OK', uptime: process.uptime() });
+});
+
+app.get('/api/health', (_req, res) => {
+  res.status(200).json({ status: 'OK', message: 'API is running normally', timestamp: new Date().toISOString() });
+});
+
 // MongoDB connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/coastguard';
 

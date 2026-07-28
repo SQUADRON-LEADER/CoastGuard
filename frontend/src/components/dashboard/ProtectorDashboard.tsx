@@ -5,7 +5,9 @@ import { useAuth } from '../../context/AuthContext';
 import QuickActions from './QuickActions';
 import { formatTimeAgo } from '../../lib/utils';
 
-const API_BASE = 'http://localhost:3003';
+import { API_BASE_URL } from '../../services/api';
+
+const API_BASE = API_BASE_URL;
 
 const ProtectorDashboard: React.FC = () => {
   const { user } = useAuth();

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, PhoneCall, X, AlertTriangle } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { isValidE164PhoneNumber, normalizePhoneNumber } from '../../lib/phone';
+import { API_BASE_URL } from '../../services/api';
 import toast from 'react-hot-toast';
 
 const HAZARD_OPTIONS = [
@@ -62,7 +63,7 @@ const TwilioDisasterCall: React.FC = () => {
     const coords = await getCoords();
 
     try {
-      const res = await fetch('http://localhost:3003/api/twilio/call', {
+      const res = await fetch(`${API_BASE_URL}/api/twilio/call`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

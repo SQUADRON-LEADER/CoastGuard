@@ -4,6 +4,7 @@ import { MessageCircle, Send, X, Bot, User, Globe, Mic, MicOff, Volume2, VolumeX
 import { ChatMessage, Language, QuickAction } from '../../types';
 import { formatTimeAgo, translateText, detectLanguage } from '../../lib/utils';
 import { useAuth } from '../../context/AuthContext';
+import { API_BASE_URL } from '../../services/api';
 
 interface MultilingualChatbotProps {
   isOpen: boolean;
@@ -110,7 +111,7 @@ const MultilingualChatbot: React.FC<MultilingualChatbotProps> = ({ isOpen, onTog
     ];
 
     try {
-      const res = await fetch('http://localhost:3003/api/chat', {
+      const res = await fetch(`${API_BASE_URL}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

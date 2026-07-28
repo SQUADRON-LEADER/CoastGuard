@@ -8,8 +8,9 @@ interface ReportsContextType {
   addReport: (report: Upload) => void;
   updateReport: (id: string, updates: Partial<Upload>) => void;
   deleteReport: (id: string) => void;
-  getReportsByStatus: (status: string) => Upload[];
-  getReportsByUser: (userId: string) => Upload[];
+  refreshReports: () => Promise<void>;
+  loading: boolean;
+  error: string | null;
 }
 
 const ReportsContext = createContext<ReportsContextType | undefined>(undefined);
@@ -25,6 +26,8 @@ export const useReports = () => {
 
 export const ReportsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [reports, setReports] = useState<Upload[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   // Load reports from API on initialization
   useEffect(() => {
@@ -34,7 +37,7 @@ export const ReportsProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const loadReports = async () => {
     try {
       console.log('ReportsContext: Starting to load reports from API...');
-      console.log('ReportsContext: API Base URL:', 'http://localhost:3003');
+      console.log('ReportsContext: API Base URL:', API_BASE_URL);
       
       const data = await ApiService.getReports();
       console.log('ReportsContext: API call successful, received data:', data);

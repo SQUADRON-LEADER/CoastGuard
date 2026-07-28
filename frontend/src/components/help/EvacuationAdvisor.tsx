@@ -4,6 +4,7 @@ import { ShieldAlert, X, MapPin, Phone, ChevronRight, AlertTriangle, CheckCircle
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { API_BASE_URL } from '../../services/api';
 import toast from 'react-hot-toast';
 
 // Fix leaflet default icon URLs
@@ -565,7 +566,7 @@ const EvacuationAdvisor: React.FC = () => {
     setVisibleSteps(0);
     if (stepTimer.current) clearTimeout(stepTimer.current);
     try {
-      const res = await fetch('http://localhost:3003/api/ai-evacuation', {
+      const res = await fetch(`${API_BASE_URL}/api/ai-evacuation`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ location: location.trim(), disasterType }),

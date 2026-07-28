@@ -25,6 +25,7 @@ import { useAuth } from '../../context/AuthContext';
 import { useReports } from '../../context/ReportsContext';
 import { useAccuracy } from '../../hooks/useAccuracy';
 import { AccuracyIndicator } from '../common/AccuracyIndicator';
+import { API_BASE_URL } from '../../services/api';
 import toast from 'react-hot-toast';
 import { ImageUploadSection } from './ImageUploadSection';
 
@@ -180,13 +181,13 @@ const AdvancedUploadForm: React.FC = () => {
       try {
         const formData = new FormData();
         formData.append('file', files[0]);
-        const uploadRes = await fetch('http://localhost:3003/api/upload', {
+        const uploadRes = await fetch(`${API_BASE_URL}/api/upload`, {
           method: 'POST',
           body: formData,
         });
         if (uploadRes.ok) {
           const { url } = await uploadRes.json();
-          fileUrl = `http://localhost:3003${url}`;
+          fileUrl = `${API_BASE_URL}${url}`;
         } else {
           // fallback: base64 (works offline / when backend is down)
           const dataUrl = await imageToDataUrl(files[0]);
@@ -304,7 +305,7 @@ const AdvancedUploadForm: React.FC = () => {
           userName: user?.name || 'Anonymous',
           createdAt: new Date().toISOString(),
         };
-        fetch('http://localhost:3003/api/ai-report-email', {
+        fetch(`${API_BASE_URL}/api/ai-report-email`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ report: reportForAI }),

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { API_BASE_URL } from '../../services/api';
 import { 
   BarChart3, 
   Users, 
@@ -63,7 +64,7 @@ const AnalyticsPanel: React.FC = () => {
   const loadRealtimeData = useCallback(async () => {
     setRealtimeLoading(true);
     try {
-      const res = await fetch('http://localhost:3003/api/realtime-disasters');
+      const res = await fetch(`${API_BASE_URL}/api/realtime-disasters`);
       const data = await res.json();
       setRealtimeStats(data.stats);
     } catch (_) {}
@@ -73,7 +74,7 @@ const AnalyticsPanel: React.FC = () => {
   const loadAiInsights = useCallback(async () => {
     setAiInsightsLoading(true);
     try {
-      const res = await fetch('http://localhost:3003/api/ai-disaster-correlation');
+      const res = await fetch(`${API_BASE_URL}/api/ai-disaster-correlation`);
       const data = await res.json();
       if (data.success) setAiInsights(data.analysis);
     } catch (_) {}
