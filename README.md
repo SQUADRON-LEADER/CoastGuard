@@ -91,7 +91,7 @@ streamlit run app.py
 1. Push `frontend/` to GitHub
 2. Import repo on [vercel.com](https://vercel.com)
 3. Set **Root Directory** to `frontend`
-4. Add environment variable: `VITE_API_BASE_URL=https://your-backend-url.com/api`
+4. Add environment variable: `VITE_API_BASE_URL=https://your-backend-url.com`
 5. Deploy ✅
 
 ### Backend → Render
@@ -110,7 +110,7 @@ streamlit run app.py
 ### Frontend (`frontend/.env`)
 | Variable | Description | Example |
 |---|---|---|
-| `VITE_API_BASE_URL` | Backend API URL | `http://localhost:3003/api` |
+| `VITE_API_BASE_URL` | Backend server URL (without `/api`) | `http://localhost:3003` |
 
 ### Backend (`backend/.env`)
 | Variable | Description |
@@ -167,4 +167,3 @@ streamlit run app.py
 | `GET` | `/api/weather/advisories` | Fetch IMD coastal meteorological bulletins |
 | `GET` | `/api/audio-alerts` | Fetch multilingual voice broadcast audio payloads |
 | `GET` | `/api/reports/export/csv` | Download verified disaster reports in CSV format |
-

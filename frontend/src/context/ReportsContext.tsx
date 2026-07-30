@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { Upload } from '../types';
-import { ApiService } from '../services/api';
+import { ApiService, API_BASE_URL } from '../services/api';
 
 interface ReportsContextType {
   reports: Upload[];
@@ -35,6 +35,9 @@ export const ReportsProvider: React.FC<{ children: React.ReactNode }> = ({ child
   }, []);
 
   const loadReports = async () => {
+    setLoading(true);
+    setError(null);
+
     try {
       console.log('ReportsContext: Starting to load reports from API...');
       console.log('ReportsContext: API Base URL:', API_BASE_URL);
@@ -71,9 +74,12 @@ export const ReportsProvider: React.FC<{ children: React.ReactNode }> = ({ child
       setReports(transformedReports);
       console.log('ReportsContext: Successfully set real reports from backend');
     } catch (error) {
+      setError((error as Error).message);
       console.error('ReportsContext: Failed to load reports:', error);
       console.log('ReportsContext: Error details:', (error as Error).message);
       // Leave existing state on error (don't overwrite with stale mock data)
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -139,6 +145,9 @@ export const ReportsProvider: React.FC<{ children: React.ReactNode }> = ({ child
     addReport,
     updateReport,
     deleteReport,
+    refreshReports: loadReports,
+    loading,
+    error,
     getReportsByStatus,
     getReportsByUser
   };

@@ -273,6 +273,24 @@ const Report = mongoose.model('Report', reportSchema);
 app.post('/api/auth/register', async (req, res) => {
   try {
     const { email, password, name, phone, role, preferredLanguage } = req.body;
+
+    if (mongoose.connection.readyState !== 1) {
+      return res.status(503).json({
+        error: 'Database is unavailable. Please try again shortly.'
+      });
+    }
+
+    if (!email || !password || !name) {
+      return res.status(400).json({
+        error: 'Name, email, and password are required.'
+      });
+    }
+
+    if (password.length < 6) {
+      return res.status(400).json({
+        error: 'Password must be at least 6 characters long.'
+      });
+    }
     
     // Check if user already exists
     const existingUser = await User.findOne({ email });
@@ -306,7 +324,16 @@ app.post('/api/auth/register', async (req, res) => {
       message: 'User registered successfully' 
     });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    // Validation and duplicate-key errors are expected client input errors.
+    if (error?.name === 'ValidationError') {
+      return res.status(400).json({ error: error.message });
+    }
+    if (error?.code === 11000) {
+      return res.status(400).json({ error: 'User already exists' });
+    }
+
+    console.error('Registration failed:', error);
+    res.status(500).json({ error: 'Unable to register user. Please try again later.' });
   }
 });
 
