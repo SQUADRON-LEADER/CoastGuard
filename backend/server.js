@@ -1945,6 +1945,11 @@ Analyze the multi-hazard correlations and return ONLY valid JSON (no markdown, n
 
     res.json({ success: true, analysis: parsed });
 
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 // ── Emergency Contact Directory REST API ─────────────────────────────────────
 const EMERGENCY_CONTACTS_DB = [
   {
