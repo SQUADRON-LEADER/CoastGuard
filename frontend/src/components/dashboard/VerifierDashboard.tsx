@@ -117,8 +117,8 @@ const VerifierDashboard: React.FC = () => {
                 <h1 style={{ color: 'white', fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)', fontWeight: 700, margin: 0, letterSpacing: '-0.03em' }}>
                   Verifier Dashboard
                 </h1>
-                <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.84rem', margin: '4px 0 0' }}>
-                  Welcome back, <strong style={{ color: 'rgba(255,255,255,0.85)' }}>{user?.name}</strong> — monitor and verify community reports
+                <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.84rem', margin: '4px 0 0' }}>
+                  Welcome back, <strong style={{ color: 'white' }}>{user?.name}</strong> — monitor and verify community reports
                 </p>
               </div>
             </div>
