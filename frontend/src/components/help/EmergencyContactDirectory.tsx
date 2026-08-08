@@ -11,6 +11,7 @@ interface ContactItem {
   available: string;
 }
 
+// Includes national & state disaster contacts (including INCOIS Tsunami Warning Center)
 const EMERGENCY_CONTACTS: ContactItem[] = [
   {
     id: 'icg-sos',
