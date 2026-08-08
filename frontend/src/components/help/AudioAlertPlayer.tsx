@@ -71,13 +71,12 @@ export const AudioAlertPlayer: React.FC = () => {
       return;
     }
 
-    // Cancel existing speech
     window.speechSynthesis.cancel();
 
     const textToSpeak = customText.trim() || selectedLang.sampleMessage;
     const utterance = new SpeechSynthesisUtterance(textToSpeak);
     utterance.lang = selectedLang.code;
-    utterance.rate = 0.9; // slightly slower for emergency clarity
+    utterance.rate = 0.9;
     utterance.pitch = 1.0;
 
     utterance.onstart = () => setIsPlaying(true);
@@ -99,22 +98,22 @@ export const AudioAlertPlayer: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-slate-900 text-white rounded-2xl p-6 shadow-2xl border border-indigo-500/30 my-6">
+    <div className="w-full bg-white text-slate-800 rounded-2xl p-6 shadow-md border border-indigo-100 my-6 overflow-hidden">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
         <div className="flex items-center space-x-3">
-          <div className="p-3 bg-indigo-500/20 rounded-xl border border-indigo-500/40">
-            <Radio className="w-7 h-7 text-indigo-400 animate-pulse" />
+          <div className="p-3 bg-indigo-50 rounded-xl border border-indigo-200">
+            <Radio className="w-7 h-7 text-indigo-600 animate-pulse" />
           </div>
           <div>
-            <h2 className="text-xl font-bold tracking-wide">Multilingual Audio Warning Broadcast</h2>
-            <p className="text-sm text-slate-400">Audio sirens & voice broadcasts in 8 regional Indian coastal languages</p>
+            <h2 className="text-xl font-bold tracking-wide text-blue-900">Multilingual Audio Warning Broadcast</h2>
+            <p className="text-sm text-slate-500">Audio sirens & voice broadcasts in 8 regional Indian coastal languages</p>
           </div>
         </div>
 
-        <div className="flex items-center space-x-2 bg-indigo-950/60 px-4 py-2 rounded-xl border border-indigo-800/50">
-          <Languages className="w-5 h-5 text-indigo-400" />
-          <span className="text-xs text-indigo-200 font-semibold">8 Coastal Languages</span>
+        <div className="flex items-center space-x-2 bg-indigo-50 px-4 py-2 rounded-xl border border-indigo-100">
+          <Languages className="w-5 h-5 text-indigo-600" />
+          <span className="text-xs text-indigo-800 font-semibold">8 Coastal Languages</span>
         </div>
       </div>
 
@@ -127,22 +126,22 @@ export const AudioAlertPlayer: React.FC = () => {
               setSelectedLang(lang);
               if (isPlaying) handleStop();
             }}
-            className={`p-3 rounded-xl text-left border transition ${
+            className={`p-3 rounded-xl text-left border transition-all ${
               selectedLang.code === lang.code
-                ? 'bg-indigo-600 text-white border-indigo-400 shadow-lg shadow-indigo-600/30'
-                : 'bg-slate-800/70 text-slate-300 border-slate-700/60 hover:bg-slate-700/80'
+                ? 'bg-indigo-600 text-white border-indigo-600 shadow-sm'
+                : 'bg-white text-slate-700 border-slate-200 hover:bg-indigo-50'
             }`}
           >
-            <span className="text-xs block text-indigo-200 font-semibold mb-0.5">{lang.name}</span>
+            <span className={`text-xs block font-semibold mb-0.5 ${selectedLang.code === lang.code ? 'text-indigo-100' : 'text-indigo-600'}`}>{lang.name}</span>
             <span className="text-sm font-bold block">{lang.nativeName}</span>
           </button>
         ))}
       </div>
 
       {/* Message Preview & Voice Control Box */}
-      <div className="p-5 bg-slate-800/50 rounded-xl border border-slate-700/60 mb-4">
-        <label className="text-xs font-semibold text-slate-300 mb-2 block flex items-center space-x-2">
-          <AlertOctagon className="w-4 h-4 text-amber-400" />
+      <div className="p-5 bg-indigo-50/50 rounded-xl border border-indigo-100 mb-4">
+        <label className="text-xs font-semibold text-blue-900 mb-2 block flex items-center space-x-2">
+          <AlertOctagon className="w-4 h-4 text-amber-600" />
           <span>Broadcast Warning Text ({selectedLang.nativeName})</span>
         </label>
 
@@ -150,14 +149,14 @@ export const AudioAlertPlayer: React.FC = () => {
           rows={3}
           value={customText || selectedLang.sampleMessage}
           onChange={(e) => setCustomText(e.target.value)}
-          className="w-full bg-slate-900 text-sm text-slate-100 p-3 rounded-lg border border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 leading-relaxed font-sans"
+          className="w-full bg-white text-sm text-blue-900 p-3 rounded-lg border border-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 leading-relaxed font-sans"
         />
 
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-700/40">
-          <div className="flex items-center space-x-2 text-xs text-slate-400">
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-indigo-100">
+          <div className="flex items-center space-x-2 text-xs text-slate-500">
             {isPlaying ? (
-              <span className="flex items-center space-x-1.5 text-emerald-400 font-bold">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+              <span className="flex items-center space-x-1.5 text-emerald-600 font-bold">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
                 <span>Broadcasting Audio Alert...</span>
               </span>
             ) : (
@@ -169,7 +168,7 @@ export const AudioAlertPlayer: React.FC = () => {
             {isPlaying ? (
               <button
                 onClick={handleStop}
-                className="flex items-center space-x-2 px-5 py-2 bg-red-600 hover:bg-red-500 text-white rounded-xl font-bold text-xs transition shadow-lg shadow-red-600/30"
+                className="flex items-center space-x-2 px-5 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl font-bold text-xs transition shadow-sm"
               >
                 <Square className="w-4 h-4 fill-current" />
                 <span>Stop Broadcast</span>
@@ -177,7 +176,7 @@ export const AudioAlertPlayer: React.FC = () => {
             ) : (
               <button
                 onClick={handleSpeak}
-                className="flex items-center space-x-2 px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold text-xs transition shadow-lg shadow-indigo-600/30"
+                className="flex items-center space-x-2 px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-xs transition shadow-sm"
               >
                 <Play className="w-4 h-4 fill-current" />
                 <span>Broadcast Audio Siren</span>

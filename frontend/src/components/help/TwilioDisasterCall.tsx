@@ -148,22 +148,17 @@ const TwilioDisasterCall: React.FC = () => {
             initial={{ opacity: 0, x: -20, scale: 0.95 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: -20, scale: 0.95 }}
-            className="fixed bottom-28 left-6 z-50 w-80 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden"
+            className="fixed bottom-28 left-6 z-50 w-80 bg-white rounded-2xl shadow-2xl border border-blue-100 overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-red-600 to-orange-500 p-4 flex items-center justify-between">
+            <div className="p-4 border-b border-blue-100 flex justify-between items-center bg-blue-50/50">
               <div className="flex items-center space-x-2">
-                <div className="p-1.5 bg-white/20 rounded-lg">
-                  <Phone className="h-4 w-4 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-white font-bold text-sm">AI Disaster Reporter</h3>
-                  <p className="text-red-100 text-xs">CoastGuard Voice Agent</p>
-                </div>
+                <div className="w-2.5 h-2.5 bg-red-500 rounded-full animate-ping" />
+                <h3 className="font-bold text-blue-900 text-sm">AI Emergency Phone Dispatcher</h3>
               </div>
               <button
-                onClick={closePanel}
-                className="text-white/80 hover:text-white transition-colors"
+                onClick={() => setCallState('idle')}
+                className="text-slate-400 hover:text-slate-600 transition-colors"
               >
                 <X className="h-4 w-4" />
               </button>

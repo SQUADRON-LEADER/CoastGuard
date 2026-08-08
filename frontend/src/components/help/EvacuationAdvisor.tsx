@@ -286,10 +286,10 @@ const FullScreenMap: React.FC<{ plan: EvacPlan; onClose: () => void }> = ({ plan
         {/* Overlay UI — header bar */}
         <div style={{
           position: 'absolute', top: 0, left: 0, right: 0, zIndex: 10000,
-          background: 'linear-gradient(135deg,#ea580c,#dc2626)',
+          background: 'linear-gradient(135deg,#1d4ed8,#0ea5e9)',
           padding: '12px 16px',
           display: 'flex', alignItems: 'center', gap: 12,
-          boxShadow: '0 2px 12px rgba(0,0,0,.3)',
+          boxShadow: '0 2px 12px rgba(14,100,200,.2)',
         }}>
           <div style={{ background: 'rgba(255,255,255,.2)', borderRadius: 10, padding: '6px 8px' }}>
             <span style={{ fontSize: 18 }}>🛡️</span>

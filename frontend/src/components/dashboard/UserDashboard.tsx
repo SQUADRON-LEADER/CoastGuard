@@ -85,7 +85,7 @@ const UserDashboard: React.FC = () => {
                 <h1 style={{ color: 'white', fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', fontWeight: 700, margin: 0, letterSpacing: '-0.03em' }}>
                   {t('dashboard.welcome')}, {user?.name}!
                 </h1>
-                <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.85rem', margin: '4px 0 0' }}>
+                <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.85rem', margin: '4px 0 0' }}>
                   {t('dashboard.subtitle')}
                 </p>
               </div>
