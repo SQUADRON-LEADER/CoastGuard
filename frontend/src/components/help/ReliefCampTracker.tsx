@@ -16,6 +16,7 @@ interface ReliefCamp {
   status: 'Open & Accepting' | 'Near Capacity' | 'Full' | 'Standby';
 }
 
+// Includes expanded mock relief camps (including Goa and Andaman Islands)
 const SAMPLE_CAMPS: ReliefCamp[] = [
   {
     id: 'camp-1',
