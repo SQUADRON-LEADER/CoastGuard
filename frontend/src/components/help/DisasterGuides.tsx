@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
-import { BookOpen, ShieldAlert, Waves, Wind, Droplets, Compass, CheckCircle2, ChevronRight } from 'lucide-react';
+import { BookOpen, ShieldAlert, Waves, Wind, Droplets, Compass, CheckCircle2, ChevronRight, Mountain } from 'lucide-react';
 
 interface SurvivalGuide {
   id: string;
   title: string;
   icon: string;
-  category: 'Cyclone' | 'Tsunami' | 'Boat Capsize' | 'Oil Spill' | 'High Surge';
+  category: 'Cyclone' | 'Tsunami' | 'Boat Capsize' | 'Oil Spill' | 'High Surge' | 'Coastal Erosion';
   summary: string;
   steps: string[];
   dos: string[];
   donts: string[];
 }
+
+const categoryColor: Record<string, string> = {
+  Cyclone:         'bg-purple-100 text-purple-800 border-purple-200',
+  Tsunami:         'bg-blue-100 text-blue-800 border-blue-200',
+  'Boat Capsize':  'bg-sky-100 text-sky-800 border-sky-200',
+  'Oil Spill':     'bg-amber-100 text-amber-800 border-amber-200',
+  'High Surge':    'bg-orange-100 text-orange-800 border-orange-200',
+  'Coastal Erosion':'bg-teal-100 text-teal-800 border-teal-200',
+};
 
 const GUIDES: SurvivalGuide[] = [
   {
@@ -92,6 +101,27 @@ const GUIDES: SurvivalGuide[] = [
       'Do not consume fish caught near visible oil sheen.',
     ],
   },
+  {
+    id: 'coastal-erosion',
+    title: 'Coastal Erosion & Shoreline Collapse Response',
+    icon: 'Mountain',
+    category: 'Coastal Erosion',
+    summary: 'Safety measures when active coastal erosion threatens settlements, roads, or fishing docks.',
+    steps: [
+      'Immediately evacuate all persons and structures within 50 meters of an actively eroding cliff or berm.',
+      'Report the erosion site with GPS coordinates to the District Disaster Management Authority (DDMA).',
+      'Do not attempt to reinforce eroding banks with sandbags without engineering guidance.',
+      'Monitor tidal patterns — erosion accelerates significantly during high tides and storm surges.',
+    ],
+    dos: [
+      'Document erosion extent with timestamps using CoastGuard app to support DDMA response.',
+      'Coordinate with local Panchayat to reroute footpaths and roads away from vulnerable edges.',
+    ],
+    donts: [
+      'Do not park or store fishing equipment near freshly eroded coastal edges.',
+      'Do not allow children to play near eroding bluffs or unstable shoreline berms.',
+    ],
+  },
 ];
 
 export const DisasterGuides: React.FC = () => {
@@ -100,96 +130,101 @@ export const DisasterGuides: React.FC = () => {
   const activeGuide = GUIDES.find((g) => g.id === selectedId) || GUIDES[0];
 
   return (
-    <div className="w-full bg-slate-900 text-white rounded-2xl p-6 shadow-2xl border border-amber-500/30 my-6">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
-        <div className="flex items-center space-x-3">
-          <div className="p-3 bg-amber-500/20 rounded-xl border border-amber-500/40">
-            <BookOpen className="w-7 h-7 text-amber-400" />
+    <div className="w-full bg-white text-slate-800 rounded-2xl shadow-md border border-amber-100 my-6 overflow-hidden">
+      {/* Amber top accent */}
+      <div className="h-1.5 w-full bg-gradient-to-r from-amber-500 to-orange-500" />
+
+      <div className="p-6">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+          <div className="flex items-center space-x-3">
+            <div className="p-3 bg-amber-50 rounded-xl border border-amber-200">
+              <BookOpen className="w-7 h-7 text-amber-600" />
+            </div>
+            <div>
+              <h2 className="text-xl font-bold tracking-wide text-blue-900">Coastal Survival & Disaster Action Guides</h2>
+              <p className="text-sm text-slate-500">Standard operating procedures for cyclones, tsunamis, boat capsize, and oil spills</p>
+            </div>
           </div>
-          <div>
-            <h2 className="text-xl font-bold tracking-wide">Coastal Survival & Disaster Action Guides</h2>
-            <p className="text-sm text-slate-400">Standard operating procedures for cyclones, tsunamis, boat capsize, and oil spills</p>
+
+          <div className="flex items-center space-x-2 bg-amber-50 px-4 py-2 rounded-xl border border-amber-100">
+            <ShieldAlert className="w-5 h-5 text-amber-600" />
+            <span className="text-xs text-amber-800 font-semibold">ICG VERIFIED GUIDANCE</span>
           </div>
         </div>
 
-        <div className="flex items-center space-x-2 bg-amber-950/60 px-4 py-2 rounded-xl border border-amber-800/50">
-          <ShieldAlert className="w-5 h-5 text-amber-400" />
-          <span className="text-xs text-amber-200 font-semibold">ICG VERIFIED GUIDANCE</span>
-        </div>
-      </div>
-
-      {/* Main Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-        {/* Guide List Sidebar */}
-        <div className="space-y-2">
-          {GUIDES.map((guide) => (
-            <button
-              key={guide.id}
-              onClick={() => setSelectedId(guide.id)}
-              className={`w-full p-4 rounded-xl text-left border transition flex items-center justify-between ${
-                selectedId === guide.id
-                  ? 'bg-amber-600 text-white border-amber-500 shadow-lg shadow-amber-600/30'
-                  : 'bg-slate-800/60 text-slate-300 border-slate-700/60 hover:bg-slate-700/80'
-              }`}
-            >
-              <div>
-                <span className="text-[10px] uppercase tracking-wider font-bold block text-amber-200 opacity-90">
-                  {guide.category}
-                </span>
-                <h4 className="font-bold text-sm leading-tight">{guide.title}</h4>
-              </div>
-              <ChevronRight className="w-5 h-5 shrink-0 opacity-80" />
-            </button>
-          ))}
-        </div>
-
-        {/* Selected Guide Details */}
-        <div className="md:col-span-2 bg-slate-800/40 p-6 rounded-2xl border border-slate-700/60 space-y-5">
-          <div className="border-b border-slate-700/60 pb-3">
-            <span className="text-xs px-3 py-1 rounded-full font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
-              PROTOCOL: {activeGuide.category.toUpperCase()}
-            </span>
-            <h3 className="text-xl font-bold text-slate-100 mt-2">{activeGuide.title}</h3>
-            <p className="text-xs text-slate-400 mt-1">{activeGuide.summary}</p>
-          </div>
-
-          {/* Action Steps */}
-          <div>
-            <h4 className="text-sm font-bold text-amber-300 mb-3 flex items-center space-x-2">
-              <CheckCircle2 className="w-4 h-4 text-amber-400" />
-              <span>Step-by-Step Survival Checklist</span>
-            </h4>
-            <div className="space-y-2">
-              {activeGuide.steps.map((step, idx) => (
-                <div key={idx} className="flex items-start space-x-3 p-3 bg-slate-900/80 rounded-xl border border-slate-700/50">
-                  <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center shrink-0 border border-amber-500/30">
-                    {idx + 1}
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+          {/* Guide List Sidebar */}
+          <div className="space-y-2">
+            {GUIDES.map((guide) => (
+              <button
+                key={guide.id}
+                onClick={() => setSelectedId(guide.id)}
+                className={`w-full p-4 rounded-xl text-left border transition flex items-center justify-between ${
+                  selectedId === guide.id
+                    ? 'bg-amber-500 text-white border-amber-500 shadow-md'
+                    : 'bg-white text-slate-700 border-slate-200 hover:bg-amber-50 hover:border-amber-200'
+                }`}
+              >
+                <div>
+                  <span className={`text-[10px] uppercase tracking-wider font-bold block mb-0.5 ${selectedId === guide.id ? 'text-amber-100' : 'text-amber-600'}`}>
+                    {guide.category}
                   </span>
-                  <p className="text-xs text-slate-200 leading-relaxed">{step}</p>
+                  <h4 className={`font-bold text-sm leading-tight ${selectedId === guide.id ? 'text-white' : 'text-blue-900'}`}>{guide.title}</h4>
                 </div>
-              ))}
-            </div>
+                <ChevronRight className={`w-5 h-5 shrink-0 ${selectedId === guide.id ? 'text-white' : 'text-amber-400'}`} />
+              </button>
+            ))}
           </div>
 
-          {/* Do's & Dont's Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-            <div className="p-4 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
-              <h5 className="text-xs font-bold text-emerald-300 mb-2">DO'S (Recommended Actions)</h5>
-              <ul className="space-y-1.5 text-xs text-emerald-200/90 list-disc list-inside">
-                {activeGuide.dos.map((d, i) => (
-                  <li key={i}>{d}</li>
-                ))}
-              </ul>
+          {/* Selected Guide Details */}
+          <div className="md:col-span-2 bg-blue-50/40 p-6 rounded-2xl border border-blue-100 space-y-5">
+            <div className="border-b border-slate-200 pb-3">
+              <span className={`text-xs px-3 py-1 rounded-full font-bold border ${categoryColor[activeGuide.category] ?? 'bg-amber-50 text-amber-800 border-amber-200'}`}>
+                PROTOCOL: {activeGuide.category.toUpperCase()}
+              </span>
+              <h3 className="text-xl font-bold text-blue-900 mt-2">{activeGuide.title}</h3>
+              <p className="text-xs text-slate-500 mt-1">{activeGuide.summary}</p>
             </div>
 
-            <div className="p-4 bg-red-950/30 border border-red-500/30 rounded-xl">
-              <h5 className="text-xs font-bold text-red-300 mb-2">DON'TS (Prohibited Risks)</h5>
-              <ul className="space-y-1.5 text-xs text-red-200/90 list-disc list-inside">
-                {activeGuide.donts.map((d, i) => (
-                  <li key={i}>{d}</li>
+            {/* Action Steps */}
+            <div>
+              <h4 className="text-sm font-bold text-amber-700 mb-3 flex items-center space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-amber-500" />
+                <span>Step-by-Step Survival Checklist</span>
+              </h4>
+              <div className="space-y-2">
+                {activeGuide.steps.map((step, idx) => (
+                  <div key={idx} className="flex items-start space-x-3 p-3 bg-white rounded-xl border border-amber-100">
+                    <span className="w-6 h-6 rounded-full bg-amber-100 text-amber-700 text-xs font-bold flex items-center justify-center shrink-0 border border-amber-200">
+                      {idx + 1}
+                    </span>
+                    <p className="text-xs text-slate-700 leading-relaxed">{step}</p>
+                  </div>
                 ))}
-              </ul>
+              </div>
+            </div>
+
+            {/* Do's & Don'ts Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-xl">
+                <h5 className="text-xs font-bold text-emerald-700 mb-2">DO'S (Recommended Actions)</h5>
+                <ul className="space-y-1.5 text-xs text-emerald-800 list-disc list-inside">
+                  {activeGuide.dos.map((d, i) => (
+                    <li key={i}>{d}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
+                <h5 className="text-xs font-bold text-red-700 mb-2">DON'TS (Prohibited Risks)</h5>
+                <ul className="space-y-1.5 text-xs text-red-800 list-disc list-inside">
+                  {activeGuide.donts.map((d, i) => (
+                    <li key={i}>{d}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
