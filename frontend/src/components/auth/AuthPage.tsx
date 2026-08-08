@@ -286,7 +286,7 @@ const AuthPage: React.FC = () => {
         {/* Top branding */}
         <div style={{ position: 'relative', zIndex: 10 }}>
           <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', textDecoration: 'none', marginBottom: '64px' }}>
-            <img src="/logo.png" alt="CoastGuard Logo" style={{ height: 42, width: 'auto', objectFit: 'contain' }} />
+            <img src="/logo.png" alt="CoastGuard Logo" style={{ height: 42, width: 42, borderRadius: '50%', objectFit: 'cover' }} />
             <div>
               <p style={{ color: 'white', fontWeight: 700, fontSize: '1.1rem', margin: 0, letterSpacing: '-0.02em' }}>CoastGuard</p>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.7rem', margin: 0 }}>Coastal Intelligence Platform</p>
@@ -348,7 +348,7 @@ const AuthPage: React.FC = () => {
         <div style={S.formCard}>
           {/* Mobile logo */}
           <div className="lg:hidden" style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '24px' }}>
-            <img src="/logo.png" alt="CoastGuard Logo" style={{ height: 36, width: 'auto', objectFit: 'contain' }} />
+            <img src="/logo.png" alt="CoastGuard Logo" style={{ height: 36, width: 36, borderRadius: '50%', objectFit: 'cover' }} />
             <span style={{ fontWeight: 700, fontSize: '1rem', color: '#0A2540' }}>CoastGuard</span>
           </div>
 

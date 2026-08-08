@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
               className="space-y-6"
             >
               <div className="flex items-center space-x-3">
-                <img src="/logo.png" alt="CoastGuard Logo" className="h-10 w-auto object-contain drop-shadow-md" />
+                <img src="/logo.png" alt="CoastGuard Logo" className="h-10 w-10 rounded-full object-cover shadow-md ring-2 ring-white/20" />
                 <div>
                   <h3 className="text-xl font-bold text-white">
                     CoastGuard

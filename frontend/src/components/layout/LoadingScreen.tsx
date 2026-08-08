@@ -145,7 +145,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading, onLoadingCompl
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                   className="w-24 h-24 mx-auto mb-4 flex items-center justify-center"
                 >
-                  <img src="/logo.png" alt="CoastGuard Logo" className="w-24 h-24 object-contain drop-shadow-lg" />
+                  <img src="/logo.png" alt="CoastGuard Logo" className="w-24 h-24 rounded-full object-cover drop-shadow-lg ring-4 ring-ocean-500/30" />
                 </motion.div>
                 
                 {/* Pulse Animation */}

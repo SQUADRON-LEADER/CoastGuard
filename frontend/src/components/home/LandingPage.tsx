@@ -277,7 +277,7 @@ const LandingPage: React.FC = () => {
           }}>
             {/* Logo */}
             <a href="#top" style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingRight: '12px', textDecoration: 'none' }}>
-              <img src="/logo.png" alt="CoastGuard Logo" style={{ height: 26, width: 'auto', objectFit: 'contain' }} />
+              <img src="/logo.png" alt="CoastGuard Logo" style={{ height: 28, width: 28, borderRadius: '50%', objectFit: 'cover' }} />
               <span style={{ fontWeight: 600, fontSize: '0.875rem', letterSpacing: '-0.02em', color: '#061829', whiteSpace: 'nowrap' }}>
                 CoastGuard
               </span>

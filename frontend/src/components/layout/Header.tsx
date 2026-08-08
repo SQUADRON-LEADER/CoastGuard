@@ -46,7 +46,7 @@ const Header: React.FC = () => {
               transition={{ type: "spring", stiffness: 300 }}
               className="relative flex items-center"
             >
-              <img src="/logo.png" alt="CoastGuard Logo" className="h-11 w-auto object-contain drop-shadow-sm" />
+              <img src="/logo.png" alt="CoastGuard Logo" className="h-11 w-11 rounded-full object-cover shadow-sm ring-2 ring-blue-500/20" />
             </motion.div>
             <div className="flex flex-col">
               <span className="text-2xl font-bold tracking-tight text-ocean-800 leading-none">
