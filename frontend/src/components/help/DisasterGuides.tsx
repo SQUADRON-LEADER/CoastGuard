@@ -21,6 +21,7 @@ const categoryColor: Record<string, string> = {
   'Coastal Erosion':'bg-teal-100 text-teal-800 border-teal-200',
 };
 
+// Includes comprehensive coastal survival guides (including Coastal Erosion Response)
 const GUIDES: SurvivalGuide[] = [
   {
     id: 'cyclone-prep',
