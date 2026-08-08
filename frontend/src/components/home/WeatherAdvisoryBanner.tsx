@@ -15,6 +15,7 @@ interface WeatherRegion {
   seaTemp?: number;
 }
 
+// Includes mock coastal regions for expanded territory monitoring (including Andaman & Lakshadweep)
 const SAMPLE_REGIONS: WeatherRegion[] = [
   {
     id: 'tn-chennai',
