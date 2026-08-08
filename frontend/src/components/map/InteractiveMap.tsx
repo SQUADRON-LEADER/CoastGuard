@@ -362,40 +362,40 @@ const InteractiveMap: React.FC = () => {
     : 'Searching';
 
   return (
-    <div className="relative h-full min-h-[calc(100vh-7rem)] overflow-hidden rounded-[28px] border border-slate-200 bg-slate-950 shadow-[0_30px_80px_rgba(15,23,42,0.24)]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(14,165,233,0.12),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(59,130,246,0.14),_transparent_30%),linear-gradient(180deg,_rgba(2,6,23,0.02),_rgba(2,6,23,0.06))]" />
+    <div className="relative h-full min-h-[calc(100vh-7rem)] overflow-hidden rounded-[28px] border border-blue-100 bg-white shadow-[0_8px_40px_rgba(14,100,200,0.10)]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(219,234,254,0.6),_transparent_50%),radial-gradient(circle_at_bottom_right,_rgba(186,230,255,0.4),_transparent_50%)]" />
 
       <div className="relative z-10 flex flex-col h-full">
-        <div className="border-b border-white/10 bg-slate-950/85 px-5 py-4 backdrop-blur-xl">
+        <div className="border-b border-blue-100 bg-white/95 px-5 py-4 backdrop-blur-xl shadow-sm">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/20">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-sky-500 shadow-lg shadow-blue-500/20">
                   <MapPinned className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-200/90">Live coastal intelligence</p>
-                  <h1 className="text-xl font-semibold tracking-tight text-white md:text-2xl">
+                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-500">Live coastal intelligence</p>
+                  <h1 className="text-xl font-semibold tracking-tight text-blue-900 md:text-2xl">
                     India Ocean & Coastal Hazard Map
                   </h1>
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-2 text-sm text-slate-200/90">
-                <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1.5">
-                  <Activity className="h-4 w-4 text-cyan-200" />
+              <div className="flex flex-wrap items-center gap-2 text-sm">
+                <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-blue-700">
+                  <Activity className="h-4 w-4 text-blue-500" />
                   Live feed
                 </span>
-                <span className="inline-flex items-center gap-2 rounded-full border border-slate-600/70 bg-slate-800/70 px-3 py-1.5">
-                  <Satellite className="h-4 w-4 text-slate-200" />
+                <span className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-3 py-1.5 text-sky-700">
+                  <Satellite className="h-4 w-4 text-sky-500" />
                   Satellite default
                 </span>
-                <span className="inline-flex items-center gap-2 rounded-full border border-slate-600/70 bg-slate-800/70 px-3 py-1.5">
-                  <LocateFixed className="h-4 w-4 text-emerald-300" />
+                <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-emerald-700">
+                  <LocateFixed className="h-4 w-4 text-emerald-500" />
                   {liveLocationState === 'live' ? `Your location ${currentCoordinates}` : liveLocationState === 'unavailable' ? 'Location unavailable' : 'Locating live position'}
                 </span>
-                <span className="inline-flex items-center gap-2 rounded-full border border-slate-600/70 bg-slate-800/70 px-3 py-1.5">
-                  <Clock3 className="h-4 w-4 text-amber-200" />
+                <span className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-amber-700">
+                  <Clock3 className="h-4 w-4 text-amber-500" />
                   Updated {formatUpdatedAt(lastUpdated || undefined)}
                 </span>
               </div>
@@ -405,7 +405,7 @@ const InteractiveMap: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setBasemap('satellite')}
-                className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors ${basemap === 'satellite' ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/20' : 'bg-white/5 text-slate-200 hover:bg-white/10'}`}
+                className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all border ${basemap === 'satellite' ? 'bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-200' : 'bg-white text-blue-700 border-blue-200 hover:bg-blue-50'}`}
               >
                 <Satellite className="h-4 w-4" />
                 Satellite
@@ -413,7 +413,7 @@ const InteractiveMap: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setBasemap('street')}
-                className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors ${basemap === 'street' ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/20' : 'bg-white/5 text-slate-200 hover:bg-white/10'}`}
+                className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all border ${basemap === 'street' ? 'bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-200' : 'bg-white text-blue-700 border-blue-200 hover:bg-blue-50'}`}
               >
                 <Map className="h-4 w-4" />
                 Streets
@@ -422,7 +422,7 @@ const InteractiveMap: React.FC = () => {
                 type="button"
                 onClick={centerOnUser}
                 disabled={!userLocation}
-                className="inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
+                className="inline-flex items-center gap-2 rounded-full bg-white border border-blue-200 px-4 py-2 text-sm font-medium text-blue-700 transition-all hover:bg-blue-50 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <Navigation2 className="h-4 w-4" />
                 My location
@@ -431,7 +431,7 @@ const InteractiveMap: React.FC = () => {
                 type="button"
                 onClick={fitAllEvents}
                 disabled={filteredEvents.length === 0}
-                className="inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
+                className="inline-flex items-center gap-2 rounded-full bg-white border border-blue-200 px-4 py-2 text-sm font-medium text-blue-700 transition-all hover:bg-blue-50 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <Crosshair className="h-4 w-4" />
                 Fit events
@@ -440,14 +440,14 @@ const InteractiveMap: React.FC = () => {
           </div>
 
           <div className="mt-4 flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-200">
-              <span className="h-2 w-2 rounded-full bg-sky-400" />
+            <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-100 px-3 py-1.5 text-xs font-medium text-blue-700">
+              <span className="h-2 w-2 rounded-full bg-blue-400" />
               Total {counts.total}
             </span>
             {(['critical', 'severe', 'serious', 'moderate', 'mild'] as Severity[]).map((severity) => (
               <span
                 key={severity}
-                className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-200"
+                className="inline-flex items-center gap-2 rounded-full bg-white border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700"
               >
                 <span className="h-2 w-2 rounded-full" style={{ backgroundColor: SEVERITY_STYLES[severity].color }} />
                 {SEVERITY_STYLES[severity].label} {counts[severity]}
@@ -456,14 +456,14 @@ const InteractiveMap: React.FC = () => {
           </div>
         </div>
 
-        <div className="border-b border-white/8 bg-slate-950/70 px-5 py-3 backdrop-blur-xl">
+        <div className="border-b border-blue-100 bg-blue-50/60 px-5 py-3">
           <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
             <div className="flex flex-wrap items-center gap-2">
-              <Filter className="h-4 w-4 text-slate-400" />
+              <Filter className="h-4 w-4 text-blue-400" />
               <select
                 value={filterType}
                 onChange={(event) => setFilterType(event.target.value as FilterType)}
-                className="rounded-full border border-slate-700 bg-slate-900/90 px-4 py-2 text-sm text-slate-100 outline-none transition-colors focus:border-cyan-400"
+                className="rounded-full border border-blue-200 bg-white px-4 py-2 text-sm text-blue-900 outline-none transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
               >
                 <option value="all">All hazard types</option>
                 <option value="tsunami">Tsunami</option>
@@ -479,7 +479,7 @@ const InteractiveMap: React.FC = () => {
               <select
                 value={filterSeverity}
                 onChange={(event) => setFilterSeverity(event.target.value as 'all' | Severity)}
-                className="rounded-full border border-slate-700 bg-slate-900/90 px-4 py-2 text-sm text-slate-100 outline-none transition-colors focus:border-cyan-400"
+                className="rounded-full border border-blue-200 bg-white px-4 py-2 text-sm text-blue-900 outline-none transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
               >
                 <option value="all">All severity levels</option>
                 <option value="critical">Critical</option>
@@ -490,21 +490,21 @@ const InteractiveMap: React.FC = () => {
               </select>
             </div>
 
-            <div className="flex flex-wrap items-center gap-2 text-sm text-slate-300">
-              <span className="inline-flex items-center gap-2 rounded-full bg-slate-800/80 px-3 py-1.5">
-                <Waves className="h-4 w-4 text-sky-300" />
+            <div className="flex flex-wrap items-center gap-2 text-sm">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white border border-sky-200 px-3 py-1.5 text-sky-700">
+                <Waves className="h-4 w-4 text-sky-500" />
                 Sea state
               </span>
-              <span className="inline-flex items-center gap-2 rounded-full bg-slate-800/80 px-3 py-1.5">
-                <Droplets className="h-4 w-4 text-cyan-300" />
+              <span className="inline-flex items-center gap-2 rounded-full bg-white border border-blue-200 px-3 py-1.5 text-blue-700">
+                <Droplets className="h-4 w-4 text-blue-500" />
                 River flood
               </span>
-              <span className="inline-flex items-center gap-2 rounded-full bg-slate-800/80 px-3 py-1.5">
-                <Wind className="h-4 w-4 text-amber-300" />
+              <span className="inline-flex items-center gap-2 rounded-full bg-white border border-amber-200 px-3 py-1.5 text-amber-700">
+                <Wind className="h-4 w-4 text-amber-500" />
                 Weather pressure
               </span>
-              <span className="inline-flex items-center gap-2 rounded-full bg-slate-800/80 px-3 py-1.5">
-                <Anchor className="h-4 w-4 text-emerald-300" />
+              <span className="inline-flex items-center gap-2 rounded-full bg-white border border-emerald-200 px-3 py-1.5 text-emerald-700">
+                <Anchor className="h-4 w-4 text-emerald-500" />
                 Community reports
               </span>
             </div>
@@ -513,25 +513,25 @@ const InteractiveMap: React.FC = () => {
 
         <div className="relative flex-1 min-h-[560px]">
           {loading && (
-            <div className="absolute inset-0 z-20 flex items-center justify-center bg-slate-950/75 backdrop-blur-sm">
-              <div className="rounded-3xl border border-white/10 bg-slate-900/90 px-6 py-5 text-center shadow-2xl">
-                <div className="mx-auto mb-3 h-10 w-10 animate-spin rounded-full border-4 border-cyan-400/35 border-t-cyan-400" />
-                <p className="text-sm font-medium text-white">Loading live hazard map</p>
-                <p className="mt-1 text-xs text-slate-400">Satellite view and incidents are updating in the background.</p>
+            <div className="absolute inset-0 z-20 flex items-center justify-center bg-white/80 backdrop-blur-sm">
+              <div className="rounded-3xl border border-blue-100 bg-white px-6 py-5 text-center shadow-xl">
+                <div className="mx-auto mb-3 h-10 w-10 animate-spin rounded-full border-4 border-blue-100 border-t-blue-500" />
+                <p className="text-sm font-medium text-blue-900">Loading live hazard map</p>
+                <p className="mt-1 text-xs text-blue-400">Satellite view and incidents are updating in the background.</p>
               </div>
             </div>
           )}
 
           {error && !loading && (
-            <div className="absolute inset-0 z-20 flex items-center justify-center bg-slate-950/75 p-6 backdrop-blur-sm">
-              <div className="max-w-md rounded-3xl border border-rose-500/20 bg-slate-900/90 px-6 py-5 text-center shadow-2xl">
-                <AlertTriangle className="mx-auto mb-3 h-10 w-10 text-rose-400" />
-                <p className="text-base font-semibold text-white">Map data could not load</p>
-                <p className="mt-2 text-sm leading-relaxed text-slate-300">{error}</p>
+            <div className="absolute inset-0 z-20 flex items-center justify-center bg-white/80 p-6 backdrop-blur-sm">
+              <div className="max-w-md rounded-3xl border border-red-100 bg-white px-6 py-5 text-center shadow-xl">
+                <AlertTriangle className="mx-auto mb-3 h-10 w-10 text-red-400" />
+                <p className="text-base font-semibold text-blue-900">Map data could not load</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-500">{error}</p>
                 <button
                   type="button"
                   onClick={fetchDisasterData}
-                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-cyan-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-cyan-400"
+                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-500"
                 >
                   <Search className="h-4 w-4" />
                   Try again
@@ -657,15 +657,15 @@ const InteractiveMap: React.FC = () => {
             })}
           </MapContainer>
 
-          <div className="pointer-events-none absolute left-5 top-5 z-[500] max-w-[280px] rounded-2xl border border-cyan-400/40 bg-slate-950/85 px-4 py-3 text-xs text-cyan-100 backdrop-blur-xl">
-            <p className="font-semibold text-cyan-300">How to use</p>
-            <p className="mt-1 leading-relaxed text-cyan-200">Hover any marker to preview the incident. Click a marker to open the detailed incident card.</p>
+          <div className="pointer-events-none absolute left-5 top-5 z-[500] max-w-[280px] rounded-2xl border border-blue-100 bg-white/90 px-4 py-3 text-xs text-blue-800 backdrop-blur-xl shadow-sm">
+            <p className="font-semibold text-blue-700">How to use</p>
+            <p className="mt-1 leading-relaxed text-blue-600">Hover any marker to preview the incident. Click a marker to open the detailed incident card.</p>
           </div>
 
-          <div className="pointer-events-none absolute left-5 bottom-5 z-[500] rounded-2xl border border-cyan-400/40 bg-slate-950/85 px-4 py-3 text-xs text-cyan-100 backdrop-blur-xl">
+          <div className="pointer-events-none absolute left-5 bottom-5 z-[500] rounded-2xl border border-blue-100 bg-white/90 px-4 py-3 text-xs text-blue-800 backdrop-blur-xl shadow-sm">
             <div className="flex flex-wrap items-center gap-3">
               {(['critical', 'severe', 'serious', 'moderate', 'mild'] as Severity[]).map((severity) => (
-                <span key={severity} className="inline-flex items-center gap-2 text-cyan-300">
+                <span key={severity} className="inline-flex items-center gap-2 text-blue-700">
                   <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: SEVERITY_STYLES[severity].color }} />
                   {SEVERITY_STYLES[severity].label}
                 </span>
@@ -681,18 +681,18 @@ const InteractiveMap: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 28 }}
               transition={{ duration: 0.22 }}
-              className="absolute right-5 top-5 z-[700] w-[min(420px,calc(100vw-2.5rem))] overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-[0_24px_60px_rgba(15,23,42,0.18)]"
+              className="absolute right-5 top-5 z-[700] w-[min(420px,calc(100vw-2.5rem))] overflow-hidden rounded-[24px] border border-blue-100 bg-white shadow-[0_24px_60px_rgba(14,100,200,0.15)]"
             >
-              <div className="flex items-start justify-between gap-4 bg-gradient-to-br from-slate-950 to-slate-800 px-5 py-4">
+              <div className="flex items-start justify-between gap-4 bg-gradient-to-br from-blue-700 to-sky-600 px-5 py-4">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">Selected incident</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-100">Selected incident</p>
                   <h2 className="mt-2 text-xl font-semibold text-white">{selectedEvent.title}</h2>
-                  <p className="mt-1 text-sm text-slate-300">{selectedEvent.place}</p>
+                  <p className="mt-1 text-sm text-blue-100">{selectedEvent.place}</p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setSelectedEvent(null)}
-                  className="rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
+                  className="rounded-full bg-white/20 p-2 text-white transition-colors hover:bg-white/30"
                   aria-label="Close incident details"
                 >
                   <X className="h-4 w-4" />
