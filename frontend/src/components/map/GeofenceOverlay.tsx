@@ -76,7 +76,6 @@ export const GeofenceOverlay: React.FC = () => {
       return;
     }
 
-    // Simple distance calculation placeholder for demonstration
     const borderDist = Math.max(2, Math.min(150, Math.round((Math.abs(lat - 10) + Math.abs(lng - 79)) * 30)));
     let riskLevel = 'Safe Territorial Waters';
     if (borderDist < 5) riskLevel = 'CRITICAL: High Risk of Maritime Border Breach!';
@@ -89,32 +88,32 @@ export const GeofenceOverlay: React.FC = () => {
   const getStatusStyle = (status: SafeZoneInfo['status']) => {
     switch (status) {
       case 'Safe Water':
-        return 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40';
+        return 'bg-emerald-50 text-emerald-700 border-emerald-200';
       case 'Caution Zone':
-        return 'bg-amber-500/20 text-amber-300 border-amber-500/40';
+        return 'bg-amber-50 text-amber-700 border-amber-200';
       case 'Danger Border':
       case 'International Boundary Breach':
-        return 'bg-red-500/20 text-red-300 border-red-500/40 animate-pulse';
+        return 'bg-red-50 text-red-700 border-red-200 animate-pulse';
     }
   };
 
   return (
-    <div className="w-full bg-slate-900 text-white rounded-2xl p-6 shadow-2xl border border-cyan-500/30 my-6">
+    <div className="w-full bg-white text-slate-800 rounded-2xl p-6 shadow-md border border-sky-100 my-6 overflow-hidden">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
         <div className="flex items-center space-x-3">
-          <div className="p-3 bg-cyan-500/20 rounded-xl border border-cyan-500/40">
-            <Compass className="w-7 h-7 text-cyan-400" />
+          <div className="p-3 bg-sky-50 rounded-xl border border-sky-200">
+            <Compass className="w-7 h-7 text-sky-600" />
           </div>
           <div>
-            <h2 className="text-xl font-bold tracking-wide">Fisherman Geofence & Border Safe Zone</h2>
-            <p className="text-sm text-slate-400">Real-time territorial water geofencing & maritime boundary distance monitoring</p>
+            <h2 className="text-xl font-bold tracking-wide text-blue-900">Fisherman Geofence & Border Safe Zone</h2>
+            <p className="text-sm text-slate-500">Real-time territorial water geofencing & maritime boundary distance monitoring</p>
           </div>
         </div>
 
-        <div className="flex items-center space-x-2 bg-cyan-950/60 px-4 py-2 rounded-xl border border-cyan-800/50">
-          <ShieldCheck className="w-5 h-5 text-cyan-400" />
-          <span className="text-xs text-cyan-200 font-semibold">GEOFENCE ACTIVE</span>
+        <div className="flex items-center space-x-2 bg-sky-50 px-4 py-2 rounded-xl border border-sky-100">
+          <ShieldCheck className="w-5 h-5 text-sky-600" />
+          <span className="text-xs text-sky-800 font-semibold">GEOFENCE ACTIVE</span>
         </div>
       </div>
 
@@ -127,84 +126,84 @@ export const GeofenceOverlay: React.FC = () => {
             <div
               key={vessel.vesselId}
               onClick={() => setSelectedVessel(vessel)}
-              className={`p-4 rounded-xl border cursor-pointer transition ${
+              className={`p-4 rounded-xl border cursor-pointer transition-all ${
                 selectedVessel.vesselId === vessel.vesselId
-                  ? 'bg-cyan-950/80 border-cyan-400 text-white shadow-lg'
-                  : 'bg-slate-800/50 border-slate-700/60 hover:bg-slate-800 text-slate-300'
+                  ? 'bg-sky-50 border-sky-300 text-blue-900 shadow-sm'
+                  : 'bg-white border-slate-200 hover:bg-slate-50 text-slate-700'
               }`}
             >
               <div className="flex items-center justify-between mb-1">
-                <span className="text-xs font-mono font-semibold text-cyan-300">{vessel.vesselId}</span>
+                <span className="text-xs font-mono font-semibold text-blue-700">{vessel.vesselId}</span>
                 <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold border ${getStatusStyle(vessel.status)}`}>
                   {vessel.status}
                 </span>
               </div>
-              <h4 className="font-bold text-sm">{vessel.vesselName}</h4>
-              <p className="text-xs text-slate-400 mt-1">Border Dist: {vessel.distanceToBorderKm} km</p>
+              <h4 className="font-bold text-sm text-blue-900">{vessel.vesselName}</h4>
+              <p className="text-xs text-slate-500 mt-1">Border Dist: {vessel.distanceToBorderKm} km</p>
             </div>
           ))}
         </div>
 
         {/* Selected Vessel Telemetry Panel */}
-        <div className="lg:col-span-2 space-y-4 bg-slate-800/40 p-5 rounded-2xl border border-slate-700/60">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-700/50">
+        <div className="lg:col-span-2 space-y-4 bg-sky-50/50 p-5 rounded-2xl border border-sky-100">
+          <div className="flex items-center justify-between pb-3 border-b border-sky-100">
             <div>
               <span className="text-xs text-slate-400 font-mono">SELECTED VESSEL TELEMETRY</span>
-              <h3 className="text-lg font-bold text-cyan-200">{selectedVessel.vesselName}</h3>
+              <h3 className="text-lg font-bold text-blue-900">{selectedVessel.vesselName}</h3>
             </div>
-            <Anchor className="w-6 h-6 text-cyan-400" />
+            <Anchor className="w-6 h-6 text-sky-600" />
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-700/60">
+            <div className="p-3 bg-white rounded-xl border border-sky-100 shadow-sm">
               <span className="text-xs text-slate-400 block mb-1">Border Distance</span>
-              <span className={`text-xl font-bold ${selectedVessel.distanceToBorderKm < 10 ? 'text-red-400' : 'text-emerald-400'}`}>
+              <span className={`text-xl font-bold ${selectedVessel.distanceToBorderKm < 10 ? 'text-red-600' : 'text-emerald-600'}`}>
                 {selectedVessel.distanceToBorderKm} km
               </span>
             </div>
 
-            <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-700/60">
+            <div className="p-3 bg-white rounded-xl border border-sky-100 shadow-sm">
               <span className="text-xs text-slate-400 block mb-1">Nearest Port</span>
-              <span className="text-sm font-bold text-slate-200 block truncate">{selectedVessel.nearestPort}</span>
-              <span className="text-[10px] text-cyan-400">{selectedVessel.distanceToPortKm} km away</span>
+              <span className="text-sm font-bold text-blue-900 block truncate">{selectedVessel.nearestPort}</span>
+              <span className="text-[10px] text-sky-600 font-medium">{selectedVessel.distanceToPortKm} km away</span>
             </div>
 
-            <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-700/60">
+            <div className="p-3 bg-white rounded-xl border border-sky-100 shadow-sm">
               <span className="text-xs text-slate-400 block mb-1">Cruising Speed</span>
-              <span className="text-xl font-bold text-cyan-300">{selectedVessel.speedKnots} knots</span>
+              <span className="text-xl font-bold text-blue-800">{selectedVessel.speedKnots} knots</span>
             </div>
           </div>
 
           {/* Coordinate Calculator */}
-          <div className="p-4 bg-slate-900/90 rounded-xl border border-slate-700/80 mt-4">
-            <h4 className="text-xs font-bold text-cyan-300 mb-3 flex items-center space-x-1.5">
-              <Crosshair className="w-4 h-4 text-cyan-400" />
+          <div className="p-4 bg-white rounded-xl border border-sky-100 shadow-sm mt-4">
+            <h4 className="text-xs font-bold text-blue-900 mb-3 flex items-center space-x-1.5">
+              <Crosshair className="w-4 h-4 text-sky-600" />
               <span>Custom GPS Geofence Check</span>
             </h4>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
               <div>
-                <label className="text-[11px] text-slate-400 block mb-1">Latitude</label>
+                <label className="text-[11px] text-slate-500 block mb-1 font-medium">Latitude</label>
                 <input
                   type="text"
                   value={userLat}
                   onChange={(e) => setUserLat(e.target.value)}
-                  className="w-full bg-slate-800 text-xs text-white p-2 rounded-lg border border-slate-700"
+                  className="w-full bg-slate-50 text-xs text-blue-900 p-2 rounded-lg border border-slate-200 focus:outline-none focus:ring-1 focus:ring-sky-300"
                 />
               </div>
               <div>
-                <label className="text-[11px] text-slate-400 block mb-1">Longitude</label>
+                <label className="text-[11px] text-slate-500 block mb-1 font-medium">Longitude</label>
                 <input
                   type="text"
                   value={userLng}
                   onChange={(e) => setUserLng(e.target.value)}
-                  className="w-full bg-slate-800 text-xs text-white p-2 rounded-lg border border-slate-700"
+                  className="w-full bg-slate-50 text-xs text-blue-900 p-2 rounded-lg border border-slate-200 focus:outline-none focus:ring-1 focus:ring-sky-300"
                 />
               </div>
               <div className="flex items-end">
                 <button
                   onClick={handleEvaluateGeofence}
-                  className="w-full py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg text-xs font-bold transition shadow-md shadow-cyan-600/20"
+                  className="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-bold transition shadow-sm"
                 >
                   Check Risk
                 </button>
@@ -212,7 +211,7 @@ export const GeofenceOverlay: React.FC = () => {
             </div>
 
             {calculatedRisk && (
-              <div className="p-2.5 bg-cyan-950/60 border border-cyan-800/60 rounded-lg text-xs text-cyan-200 font-mono">
+              <div className="p-2.5 bg-blue-50 border border-blue-200 rounded-lg text-xs text-blue-900 font-mono">
                 {calculatedRisk}
               </div>
             )}
