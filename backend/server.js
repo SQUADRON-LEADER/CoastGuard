@@ -43,6 +43,48 @@ setInterval(() => {
 const app = express();
 const PORT = process.env.PORT || 3003;
 
+// ── MongoDB connection ───────────────────────────────────────────────────────
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/coastguard';
+
+if (process.env.NODE_ENV === 'production' && !process.env.MONGODB_URI) {
+  console.error('❌ MONGODB_URI is not set in environment variables. Database will not connect on Render.');
+}
+
+mongoose.set('bufferCommands', false);
+
+mongoose.connect(MONGODB_URI, {
+  serverSelectionTimeoutMS: 10000,
+  socketTimeoutMS: 45000,
+})
+  .then(() => console.log('📊 Connected to MongoDB'))
+  .catch(err => console.error('❌ MongoDB connection error:', err.message));
+
+function isDbConnected() {
+  return mongoose.connection.readyState === 1;
+}
+
+function requireDb(req, res, next) {
+  if (!isDbConnected()) {
+    return res.status(503).json({
+      error: 'Database is unavailable. Please try again shortly.',
+      database: 'disconnected',
+    });
+  }
+  next();
+}
+
+function healthPayload() {
+  return {
+    status: isDbConnected() ? 'OK' : 'degraded',
+    message: isDbConnected()
+      ? 'CoastGuard API is running'
+      : 'API is up but MongoDB is not connected — set MONGODB_URI on Render',
+    timestamp: new Date().toISOString(),
+    database: isDbConnected() ? 'connected' : 'disconnected',
+    mongodbConfigured: Boolean(process.env.MONGODB_URI),
+  };
+}
+
 // ── Gemini AI Setup ──────────────────────────────────────────────────────────
 const geminiAI = process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== 'your_gemini_api_key_here'
   ? new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
@@ -147,22 +189,14 @@ app.get('/', (_req, res) => {
 });
 
 app.get('/health', (_req, res) => {
-  res.status(200).json({ status: 'OK', uptime: process.uptime() });
+  const code = isDbConnected() ? 200 : 503;
+  res.status(code).json({ ...healthPayload(), uptime: process.uptime() });
 });
 
 app.get('/api/health', (_req, res) => {
-  res.status(200).json({ status: 'OK', message: 'API is running normally', timestamp: new Date().toISOString() });
+  const code = isDbConnected() ? 200 : 503;
+  res.status(code).json(healthPayload());
 });
-
-// MongoDB connection
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/coastguard';
-
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('📊 Connected to MongoDB'))
-.catch(err => console.error('❌ MongoDB connection error:', err));
 
 // User Schema
 const userSchema = new mongoose.Schema({
@@ -270,15 +304,9 @@ const Report = mongoose.model('Report', reportSchema);
 // Routes
 
 // User Authentication
-app.post('/api/auth/register', async (req, res) => {
+app.post('/api/auth/register', requireDb, async (req, res) => {
   try {
     const { email, password, name, phone, role, preferredLanguage } = req.body;
-
-    if (mongoose.connection.readyState !== 1) {
-      return res.status(503).json({
-        error: 'Database is unavailable. Please try again shortly.'
-      });
-    }
 
     if (!email || !password || !name) {
       return res.status(400).json({
@@ -337,7 +365,7 @@ app.post('/api/auth/register', async (req, res) => {
   }
 });
 
-app.post('/api/auth/login', async (req, res) => {
+app.post('/api/auth/login', requireDb, async (req, res) => {
   try {
     const { email, password } = req.body;
     
@@ -372,7 +400,7 @@ app.post('/api/auth/login', async (req, res) => {
 });
 
 // Get user by ID (for frontend to fetch user data)
-app.get('/api/users/:id', async (req, res) => {
+app.get('/api/users/:id', requireDb, async (req, res) => {
   try {
     const user = await User.findById(req.params.id).select('-password');
     if (!user) {
@@ -385,7 +413,7 @@ app.get('/api/users/:id', async (req, res) => {
 });
 
 // Update user role
-app.patch('/api/users/:id/role', async (req, res) => {
+app.patch('/api/users/:id/role', requireDb, async (req, res) => {
   try {
     const { role } = req.body;
     const user = await User.findByIdAndUpdate(
@@ -405,7 +433,7 @@ app.patch('/api/users/:id/role', async (req, res) => {
 });
 
 // Update user location
-app.patch('/api/users/:id/location', async (req, res) => {
+app.patch('/api/users/:id/location', requireDb, async (req, res) => {
   try {
     const { location } = req.body;
     const user = await User.findByIdAndUpdate(
@@ -425,7 +453,7 @@ app.patch('/api/users/:id/location', async (req, res) => {
 });
 
 // Reports
-app.get('/api/reports', async (req, res) => {
+app.get('/api/reports', requireDb, async (req, res) => {
   try {
     const { status, userId } = req.query;
     let query = {};
@@ -452,7 +480,7 @@ app.get('/api/reports', async (req, res) => {
   }
 });
 
-app.post('/api/reports', async (req, res) => {
+app.post('/api/reports', requireDb, async (req, res) => {
   try {
     const report = new Report(req.body);
     await report.save();
@@ -468,7 +496,7 @@ app.post('/api/reports', async (req, res) => {
   }
 });
 
-app.put('/api/reports/:id', async (req, res) => {
+app.put('/api/reports/:id', requireDb, async (req, res) => {
   try {
     const { id } = req.params;
     // Strip immutable fields to prevent MongoDB errors
@@ -490,7 +518,7 @@ app.put('/api/reports/:id', async (req, res) => {
 });
 
 // Analytics
-app.get('/api/analytics', async (req, res) => {
+app.get('/api/analytics', requireDb, async (req, res) => {
   try {
     const { timeRange = '7d' } = req.query;
     
@@ -633,7 +661,7 @@ app.get('/api/analytics', async (req, res) => {
 });
 
 // Debug endpoint to see all users
-app.get('/api/debug/users', async (req, res) => {
+app.get('/api/debug/users', requireDb, async (req, res) => {
   try {
     const users = await User.find({}, { password: 0 }); // Exclude passwords
     res.json({ users, count: users.length });
@@ -642,21 +670,8 @@ app.get('/api/debug/users', async (req, res) => {
   }
 });
 
-// Health check
-app.get('/api/health', (req, res) => {
-  const wb = getWebhookBase();
-  res.json({ 
-    status: 'OK', 
-    message: 'CoastGuard API is running',
-    timestamp: new Date().toISOString(),
-    database: mongoose.connection.readyState === 1 ? 'Connected' : 'Disconnected',
-    tunnel: getWebhookBase() || 'NOT READY — start tunnel or set TWILIO_WEBHOOK_URL in .env',
-    twilioReady: !!(twilioClient && getWebhookBase()),
-  });
-});
-
 // ── Leaderboard — top users by points ────────────────────────────────────────
-app.get('/api/leaderboard', async (req, res) => {
+app.get('/api/leaderboard', requireDb, async (req, res) => {
   try {
     const users = await User.find({}, { password: 0 })
       .sort({ points: -1 })
@@ -2267,7 +2282,7 @@ app.get('/api/reports/export/csv', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`📱 API: http://localhost:${PORT}/api`);
-  console.log(`💾 MongoDB: ${MONGODB_URI}`);
+  console.log(`💾 MongoDB: ${process.env.MONGODB_URI ? 'configured via MONGODB_URI' : 'using localhost fallback (set MONGODB_URI on Render)'}`);
 
   // If a static webhook URL is configured in .env, use it for Twilio
   const staticWebhook = process.env.TWILIO_WEBHOOK_URL;

@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import axios from 'axios';
 
 const mongoUri = import.meta.env.VITE_MONGODB_URI;
-const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001/api';
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'https://coastguard-sgwc.onrender.com/api';
 
 if (!mongoUri) {
   throw new Error(
