@@ -141,7 +141,7 @@ const AUTHORITY_EMAILS = (process.env.AUTHORITY_EMAILS || '')
 // ── Twilio Setup ─────────────────────────────────────────────
 const TWILIO_SID   = process.env.TWILIO_ACCOUNT_SID;
 const TWILIO_TOKEN = process.env.TWILIO_AUTH_TOKEN;
-const TWILIO_PHONE = process.env.TWILIO_PHONE_NUMBER;
+const TWILIO_PHONE = process.env.TWILIO_PHONE_NUMBER || process.env.TWILIO_FROM_NUMBER;
 
 // Runtime tunnel URL (set by localtunnel on startup) or static URL from .env
 const getWebhookBase = () => global._webhookBase || (process.env.TWILIO_WEBHOOK_URL || null);
