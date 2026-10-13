@@ -20,7 +20,7 @@ This guide explains how to deploy the **CoastGuard Backend API** on [Render](htt
    - **Health Check Path**: `/health`
 
 5. Add Environment Variables in Render:
-   - `MONGODB_URI`: `mongodb+srv://<username>:<password>@cluster.mongodb.net/coastguard?retryWrites=true&w=majority` *(MongoDB Atlas Cloud URI)*
+   - `MONGODB_URI`: `mongodb+srv://FA:<password>@coastguard.jn05og9.mongodb.net/coastguard?retryWrites=true&w=majority&appName=CoastGuard` *(Note: If password has special characters like `@`, encode as `%40`)*
    - `GEMINI_API_KEY`: *(Optional)* Your Google Gemini API Key
    - `SMTP_USER` & `SMTP_PASS`: *(Optional)* Gmail App Password for alert emails
    - `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, `TWILIO_PHONE_NUMBER`: *(Optional)* Twilio credentials for voice SOS calls

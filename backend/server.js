@@ -44,15 +44,41 @@ const app = express();
 const PORT = process.env.PORT || 3003;
 
 // ── MongoDB connection ───────────────────────────────────────────────────────
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/coastguard';
+function formatMongoUri(rawUri) {
+  if (!rawUri || typeof rawUri !== 'string') return rawUri;
+  const match = rawUri.match(/^(mongodb(?:\+srv)?:\/\/)(.*)$/);
+  if (!match) return rawUri;
+  const prefix = match[1];
+  const rest = match[2];
+  const lastAt = rest.lastIndexOf('@');
+  if (lastAt === -1) return rawUri;
+  const userInfo = rest.slice(0, lastAt);
+  const hostAndQuery = rest.slice(lastAt + 1);
+  const colonIdx = userInfo.indexOf(':');
+  if (colonIdx === -1) return rawUri;
+  const user = userInfo.slice(0, colonIdx);
+  let pass = userInfo.slice(colonIdx + 1);
+  try {
+    pass = decodeURIComponent(pass);
+  } catch (_) {}
+  return `${prefix}${encodeURIComponent(user)}:${encodeURIComponent(pass)}@${hostAndQuery}`;
+}
 
-if (process.env.NODE_ENV === 'production' && !process.env.MONGODB_URI) {
-  console.error('❌ MONGODB_URI is not set in environment variables. Database will not connect on Render.');
+const rawUri = process.env.MONGODB_URI || process.env.MONGO_URI || 'mongodb://localhost:27017/coastguard';
+const MONGODB_URI = formatMongoUri(rawUri);
+
+if (!process.env.MONGODB_URI && !process.env.MONGO_URI) {
+  if (process.env.NODE_ENV === 'production' || process.env.RENDER) {
+    console.error('❌ MONGODB_URI is not set in Render Environment Variables! Render cannot connect to localhost:27017. Please add MONGODB_URI to your Render dashboard service settings.');
+  } else {
+    console.warn('⚠️  MONGODB_URI not found in environment, falling back to local MongoDB (localhost:27017)');
+  }
 }
 
 mongoose.set('bufferCommands', false);
 
 mongoose.connect(MONGODB_URI, {
+  dbName: 'coastguard',
   serverSelectionTimeoutMS: 10000,
   socketTimeoutMS: 45000,
 })
