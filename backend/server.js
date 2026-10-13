@@ -994,19 +994,18 @@ function getTwilioCallErrorMessage(error, phone) {
   const message = error?.message || 'Unknown Twilio error';
   const code = error?.code;
 
+  let hint = '';
   if (code === 21211) {
-    return `Twilio rejected ${phone} as an invalid destination number. Check the country code and digits.`;
+    hint = `Twilio rejected ${phone} as an invalid destination number. Check the country code and digits.`;
+  } else if (code === 21608 || /trial/i.test(message) || /verified/i.test(message)) {
+    hint = `Your Twilio account may be in trial mode. Verify ${phone} under 'Verified Caller IDs' in Twilio Console or upgrade the account.`;
+  } else if (code === 21408 || /permission/i.test(message) || /geo/i.test(message)) {
+    hint = `Voice permission for ${phone} may be disabled in Twilio Geo Permissions. Enable India (+91) calling under Voice > Settings > Geo Permissions in Twilio Console.`;
   }
 
-  if (code === 21608 || /trial/i.test(message) || /verified/i.test(message)) {
-    return `Your Twilio account may be in trial mode. Verify ${phone} in the Twilio Console or upgrade the account to call it.`;
-  }
-
-  if (code === 21408 || /permission/i.test(message) || /geo/i.test(message)) {
-    return `Voice permission for ${phone} may be disabled in Twilio Geo Permissions. Enable India calling in the Twilio Console.`;
-  }
-
-  return `Twilio call failed: ${message}`;
+  return hint
+    ? `${hint} (Twilio Code ${code || 'ERR'}: ${message})`
+    : `Twilio call failed: ${message} (Code: ${code || 'UNKNOWN'})`;
 }
 
 // Rescue team details per disaster type

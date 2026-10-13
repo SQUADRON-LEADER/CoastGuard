@@ -263,7 +263,7 @@ GitHub (main branch)
 │  - Auto-deploy from GitHub                  │
 │  - Web Service: node server.js              │
 │  - Auto-scale on traffic spike              │
-│  - Live URL: coastguard-sgwc.onrender.com   │
+│  - Live URL: coastguard-backend.onrender.com│
 └─────────────────────────────────────────────┘
 ┌─────────────────────────────────────────────┐
 │  MongoDB Atlas (Database)                    │

@@ -1,6 +1,6 @@
 # CoastGuard API Reference
 
-**Base URL:** `https://coastguard-sgwc.onrender.com`  
+**Base URL:** `https://coastguard-backend.onrender.com`  
 **All endpoints are prefixed with** `/api`  
 **Authentication:** Bearer JWT token in `Authorization` header
 

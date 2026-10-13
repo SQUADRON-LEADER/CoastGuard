@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, ArrowRight, Quote, Phone, PhoneCall, X, MapPin, Shield, BarChart3, Waves, Users, Clock, AlertTriangle, Zap, Globe, Activity } from 'lucide-react';
+import { API_BASE_URL } from '../../services/api';
 
 /* ─── Blue Palette (mirrors the Substance Lab green → CoastGuard ocean blue) ─ */
 // Accent:      #3B9EFF   (bright ocean blue — was #42A85D)
@@ -237,13 +238,13 @@ const LandingPage: React.FC = () => {
     if (!phone.trim()) { setCallState('error'); setCallMsg('Enter your phone number.'); return; }
     setCallState('calling');
     try {
-      const res = await fetch('/api/twilio/call', {
+      const res = await fetch(`${API_BASE_URL}/api/twilio/call`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phoneNumber: phone, userName: 'Visitor' }),
+        body: JSON.stringify({ phoneNumber: phone.trim(), userName: 'Visitor' }),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Failed');
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || `Call failed (HTTP ${res.status})`);
       setCallState('done');
       setCallMsg('Call initiated! Pick up your phone — the CoastGuard AI agent will guide you.');
     } catch (err: unknown) {

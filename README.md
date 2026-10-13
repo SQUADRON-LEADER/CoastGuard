@@ -295,7 +295,7 @@ npm start
 npx nodemon server.js
 ```
 
-> **Live Backend URL:** `https://coastguard-sgwc.onrender.com`
+> **Live Backend URL:** `https://coastguard-backend.onrender.com`
 
 ---
 
@@ -339,7 +339,7 @@ python evaluate_model.py
 VITE_API_BASE_URL=http://localhost:3003
 
 # Override for production
-# VITE_API_BASE_URL=https://coastguard-sgwc.onrender.com
+# VITE_API_BASE_URL=https://coastguard-backend.onrender.com
 ```
 
 ### Backend (`backend/.env`)
@@ -436,7 +436,7 @@ JWT_EXPIRES_IN=7d
 
 ## 📡 API Reference
 
-All endpoints are prefixed with `/api`. Base URL: `https://coastguard-sgwc.onrender.com`
+All endpoints are prefixed with `/api`. Base URL: `https://coastguard-backend.onrender.com`
 
 ### 🔐 Authentication
 
@@ -573,7 +573,7 @@ See `confusion_matrix.png` and `Final.ipynb` for full evaluation details.
 2. Go to vercel.com → New Project → Import SQUADRON-LEADER/CoastGuard
 3. Set Root Directory: frontend
 4. Add environment variable:
-      VITE_API_BASE_URL = https://coastguard-sgwc.onrender.com
+      VITE_API_BASE_URL = https://coastguard-backend.onrender.com
 5. Click Deploy ✅
 ```
 

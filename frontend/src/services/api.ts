@@ -1,4 +1,4 @@
-export const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || 'https://coastguard-sgwc.onrender.com').replace(/\/api\/?$/, '').replace(/\/$/, '');
+export const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || 'https://coastguard-backend.onrender.com').replace(/\/api\/?$/, '').replace(/\/$/, '');
 export const API_URL = `${API_BASE_URL}/api`;
 
 export class ApiService {
